@@ -23,6 +23,14 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
+  "configSchema": {
+    "showSignatureHelpOnTyping": {
+      "title": "Flag denotes if the signature help should be shown automatically",
+      "description": "If set to true, the signature help is shown as soon as you start typing. Otherwise you will have to activate it via keypress.",
+      "type": "boolean",
+      "default": true
+    }
+  },
   "dependencies": {
     "dompurify": "^1.0.8",
     "etch": "^0.14.0",
