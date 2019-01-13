@@ -1,0 +1,43 @@
+{
+  "name": "atom-ide-signature-help",
+  "version": "0.0.0",
+  "description": "A replacement of the SignatureHelp functionality from the original Atom-IDE / Nuclide package developed by Facebook.",
+  "main": "./lib/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/appelgriebsch/atom-ide-signature-help.git"
+  },
+  "keywords": [
+    "atom-package",
+    "atom-ide",
+    "signature-help"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/appelgriebsch/atom-ide-signature-help/issues"
+  },
+  "homepage": "https://github.com/appelgriebsch/atom-ide-signature-help#readme",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "dompurify": "^1.0.8",
+    "etch": "^0.14.0",
+    "marked": "^0.6.0"
+  },
+  "devDependencies": {
+    "@types/atom": "^1.31.0",
+    "@types/node": "^10.12.18",
+    "atom-languageclient": "^0.9.9"
+  },
+  "providedServices": {
+    "signature-help": {
+      "versions": {
+        "0.1.0": "provideSignatureHelp"
+      }
+    }
+  }
+}
