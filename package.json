@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "https://github.com/appelgriebsch/atom-ide-signature-help.git",
+  "repository": "https://github.com/atom-ide-community/atom-ide-signature-help",
   "keywords": [
     "atom-package",
     "atom-ide",

@@ -1,3 +1,6 @@
+### 0.1.3
+* Move to atom-ide-community
+
 ### 0.1.1 - Bugfix Release
 * position signature help view above current editing line
 
