@@ -1,6 +1,6 @@
 {
   "name": "atom-ide-signature-help",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A replacement of the SignatureHelp functionality from the original Atom-IDE / Nuclide package developed by Facebook.",
   "main": "./lib/main.js",
   "scripts": {
