@@ -4,3 +4,6 @@
 /.gitignore export-ignore
 /.prettierrc export-ignore
 /.travis.yml export-ignore
+/screenshot.png export-ignore
+/spec export-ignore
+/typings export-ignore
