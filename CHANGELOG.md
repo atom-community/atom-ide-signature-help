@@ -1,3 +1,10 @@
+# [0.2.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.1.3...v0.2.0) (2019-03-12)
+
+
+### Features
+
+* add initial travis-ci integration ([69f604c](https://github.com/atom-ide-community/atom-ide-signature-help/commit/69f604c))
+
 ### 0.1.3
 * Move to atom-ide-community
 
