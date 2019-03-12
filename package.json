@@ -3,22 +3,50 @@
   "version": "0.1.3",
   "description": "A replacement of the SignatureHelp functionality from the original Atom-IDE / Nuclide package developed by Facebook.",
   "main": "./lib/main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": "https://github.com/atom-ide-community/atom-ide-signature-help",
   "keywords": [
     "atom-package",
     "atom-ide",
     "signature-help"
   ],
+  "repository": "https://github.com/atom-ide-community/atom-ide-signature-help",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/appelgriebsch/atom-ide-signature-help/issues"
-  },
-  "homepage": "https://github.com/appelgriebsch/atom-ide-signature-help#readme",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "dompurify": "^1.0.8",
+    "etch": "^0.14.0",
+    "marked": "^0.6.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.5.2",
+    "@commitlint/config-conventional": "^7.5.0",
+    "@commitlint/travis-cli": "^7.5.2",
+    "@semantic-release/apm-config": "^6.0.1",
+    "@types/atom": "^1.31.1",
+    "@types/dompurify": "0.0.32",
+    "@types/marked": "^0.6.0",
+    "@types/node": "^10.12.18",
+    "@types/react": "^16.7.21",
+    "@types/react-dom": "^16.0.11",
+    "atom-languageclient": "^0.9.9",
+    "commitlint": "^7.5.2",
+    "husky": "^1.3.1",
+    "prettier": "1.16.4",
+    "semantic-release": "^15.13.3"
+  },
+  "release": {
+    "extends": "@semantic-release/apm-config"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
   },
   "configSchema": {
     "showSignatureHelpOnTyping": {
@@ -27,20 +55,6 @@
       "type": "boolean",
       "default": true
     }
-  },
-  "dependencies": {
-    "dompurify": "^1.0.8",
-    "etch": "^0.14.0",
-    "marked": "^0.6.0"
-  },
-  "devDependencies": {
-    "@types/atom": "^1.31.0",
-    "@types/dompurify": "0.0.32",
-    "@types/marked": "^0.6.0",
-    "@types/node": "^10.12.18",
-    "@types/react": "^16.7.21",
-    "@types/react-dom": "^16.0.11",
-    "atom-languageclient": "^0.9.9"
   },
   "providedServices": {
     "signature-help": {
