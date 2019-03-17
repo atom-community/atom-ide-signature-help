@@ -1,3 +1,10 @@
+## [0.3.4](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.3.3...v0.3.4) (2019-03-17)
+
+
+### Bug Fixes
+
+* font-size and pre tag design ([9c57151](https://github.com/atom-ide-community/atom-ide-signature-help/commit/9c57151))
+
 ## [0.3.3](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.3.2...v0.3.3) (2019-03-17)
 
 
