@@ -5,11 +5,13 @@
   background: @app-background-color;
   box-shadow: 0px 1px 4px 0px rgba(0,0,0,1);
   color: @syntax-text-color;
-  font-family: Menlo, Monaco, Consolas, monospace;
+  font-size: 1rem; // some themes set font sizes on the root node
   margin-top: -2px; // Compensate for shadow
   position: relative;
   white-space: normal;
   pointer-events: all;
+  max-width: 800px;
+  overflow: none;
 }
 
 .datatip-overlay {
@@ -23,10 +25,12 @@
   background-color: @syntax-background-color;
   display: flex;
   position: relative;
-  max-width: 750px;
-  padding-left: 5px;
-  padding-right: 5px;
+  max-width: 800px;
   transition: background-color 0.15s ease;
+  padding: 8px;
+  white-space: pre-wrap;
+  font-family: var(--editor-font-family);
+  font-size: max(var(--editor-font-size), 0.9rem);
   &:hover {
     background-color: mix(@syntax-background-color, @syntax-selection-color, 50%);
   }
@@ -46,31 +50,8 @@
 }
 
 .datatip-marked-text-editor {
+  flex-grow: 1;
   .cursors {
     display: none;
   }
-}
-
-atom-text-editor {
-
-  .datatip-highlight-region > .region {
-    // Use a faded version of the cursor color so as to have a distinction when
-    // overlapping with a selection (`@syntax-selection-color`). This element is
-    // on top of the selection element, so that will show through.
-    background: fade(@syntax-cursor-color, 10%);
-  }
-
-  .datatip-highlight-region-active > .region {
-    // Animations such as `RotatingBackground` must be defined in a `*.atom-text-editor.less` file.
-    animation: RotatingBackground 1s ease-in-out infinite reverse;
-    background: linear-gradient(
-      90deg,
-      @syntax-selection-color,
-      @syntax-background-color,
-      @syntax-selection-color,
-      @syntax-background-color
-    );
-    background-size: 300% 100%;
-  }
-
 }
