@@ -1,3 +1,10 @@
+## [0.3.3](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.3.2...v0.3.3) (2019-03-17)
+
+
+### Bug Fixes
+
+* dependency installation prompt ([b8265e1](https://github.com/atom-ide-community/atom-ide-signature-help/commit/b8265e1))
+
 ## [0.3.2](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.3.1...v0.3.2) (2019-03-17)
 
 
