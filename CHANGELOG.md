@@ -1,3 +1,10 @@
+# [0.3.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.2.0...v0.3.0) (2019-03-17)
+
+
+### Features
+
+* adding markdown-renderer service support ([9ea684a](https://github.com/atom-ide-community/atom-ide-signature-help/commit/9ea684a))
+
 # [0.2.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.1.3...v0.2.0) (2019-03-12)
 
 
