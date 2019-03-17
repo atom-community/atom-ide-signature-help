@@ -1,3 +1,10 @@
+## [0.3.2](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.3.1...v0.3.2) (2019-03-17)
+
+
+### Bug Fixes
+
+* null pointer during startup ([a0f0cca](https://github.com/atom-ide-community/atom-ide-signature-help/commit/a0f0cca))
+
 ## [0.3.1](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.3.0...v0.3.1) (2019-03-17)
 
 
