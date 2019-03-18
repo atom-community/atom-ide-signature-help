@@ -1,3 +1,10 @@
+# [0.4.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.3.5...v0.4.0) (2019-03-18)
+
+
+### Features
+
+* add request token, custom css selector for signature help ([e2f6df4](https://github.com/atom-ide-community/atom-ide-signature-help/commit/e2f6df4))
+
 ## [0.3.5](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.3.4...v0.3.5) (2019-03-18)
 
 
