@@ -1,3 +1,10 @@
+## [0.3.5](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.3.4...v0.3.5) (2019-03-18)
+
+
+### Bug Fixes
+
+* remove padding from pre tag ([0c40ef1](https://github.com/atom-ide-community/atom-ide-signature-help/commit/0c40ef1)), closes [#12](https://github.com/atom-ide-community/atom-ide-signature-help/issues/12)
+
 ## [0.3.4](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.3.3...v0.3.4) (2019-03-17)
 
 
