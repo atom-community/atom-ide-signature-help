@@ -1,7 +1,7 @@
 @import "ui-variables";
 @import "syntax-variables";
 
-.datatip-element {
+.signature-element {
   background: @app-background-color;
   box-shadow: 0px 1px 4px 0px rgba(0,0,0,1);
   color: @syntax-text-color;
@@ -11,28 +11,30 @@
   white-space: normal;
   pointer-events: all;
   max-width: 800px;
+  max-height: 400px;
   overflow: none;
-  
+
   p {
     margin-left: 8px;
     margin-right: 8px;
-    
+
     &:last-child { margin-bottom: 8px; }
   }
 }
 
-.datatip-overlay {
+.signature-overlay {
   z-index: 12 !important; // HACK: exceed the z-index of
                           // .atom-dock-resize-handle-resizable, so that
                           // mouseleaves aren't triggered when the cursor enters
                           // the resizable
 }
 
-.datatip-container {
+.signature-container {
   background-color: @syntax-background-color;
   display: flex;
   position: relative;
   max-width: 800px;
+  max-height: 400px;
   transition: background-color 0.15s ease;
   padding: 8px;
   white-space: pre-wrap;
@@ -47,7 +49,7 @@
   }
 }
 
-.datatip-content {
+.signature-content {
   flex-grow: 1;
 
   // Allow higher-level component to override the cursor property on certain children.
@@ -56,7 +58,7 @@
   }
 }
 
-.datatip-marked-text-editor {
+.signature-marked-text-editor {
   flex-grow: 1;
   .cursors {
     display: none;

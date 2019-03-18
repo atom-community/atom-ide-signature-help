@@ -1,15 +1,16 @@
 @import "ui-variables";
 @import "syntax-variables";
 
-.datatip-marked > div:not(:last-child) {
+.signature-marked > div:not(:last-child) {
   border-bottom: 1px solid fade(@syntax-cursor-color, 10%);
 }
 
-.datatip-marked-container {
+.signature-marked-container {
   color: @syntax-text-color;
   font-family: var(--editor-font-family);
   font-size: var(--editor-font-size);
-  max-width: 750px;
+  max-width: 800px;
+  max-height: 400px;
   overflow: auto;
   white-space: normal;
 
