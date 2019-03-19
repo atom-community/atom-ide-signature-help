@@ -1,3 +1,10 @@
+## [0.4.2](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.4.1...v0.4.2) (2019-03-19)
+
+
+### Bug Fixes
+
+* calling mount/unmount in a right sequence ([023620b](https://github.com/atom-ide-community/atom-ide-signature-help/commit/023620b))
+
 ## [0.4.1](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.4.0...v0.4.1) (2019-03-19)
 
 
