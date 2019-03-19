@@ -1,3 +1,10 @@
+## [0.4.1](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.4.0...v0.4.1) (2019-03-19)
+
+
+### Bug Fixes
+
+* upload screenshot to github cdn ([31c8fc3](https://github.com/atom-ide-community/atom-ide-signature-help/commit/31c8fc3))
+
 # [0.4.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.3.5...v0.4.0) (2019-03-18)
 
 
