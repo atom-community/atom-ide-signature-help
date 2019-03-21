@@ -1,3 +1,10 @@
+## [0.4.4](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.4.3...v0.4.4) (2019-03-21)
+
+
+### Bug Fixes
+
+* overlay sizing ([5888563](https://github.com/atom-ide-community/atom-ide-signature-help/commit/5888563))
+
 ## [0.4.3](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.4.2...v0.4.3) (2019-03-21)
 
 
