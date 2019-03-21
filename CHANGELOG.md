@@ -1,3 +1,10 @@
+## [0.4.5](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.4.4...v0.4.5) (2019-03-21)
+
+
+### Bug Fixes
+
+* it doesn't like dynamic heights for long markdown descriptions :( ([e5d3091](https://github.com/atom-ide-community/atom-ide-signature-help/commit/e5d3091))
+
 ## [0.4.4](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.4.3...v0.4.4) (2019-03-21)
 
 
