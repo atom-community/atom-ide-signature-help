@@ -1,3 +1,10 @@
+## [0.4.3](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.4.2...v0.4.3) (2019-03-21)
+
+
+### Bug Fixes
+
+* error handling in promise, activeParameter capturing ([e9d3ce7](https://github.com/atom-ide-community/atom-ide-signature-help/commit/e9d3ce7))
+
 ## [0.4.2](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.4.1...v0.4.2) (2019-03-19)
 
 
