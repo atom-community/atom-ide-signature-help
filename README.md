@@ -17,7 +17,7 @@ A replacement of the Signature Help functionality from the original Atom-IDE / N
 
 3. Install `busy-signal` package in Atom, which is used for signaling background tasks.
 
-![A screenshot of your package](https://user-images.githubusercontent.com/499192/54529610-a71f5200-4980-11e9-80f6-115fec88fe5d.png)
+![A screenshot of your package](https://atom-ide-community.github.io/assets/images/screenshot-sig-help.png)
 
 ## Contributing
 
