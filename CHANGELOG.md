@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.4.5...v0.5.0) (2019-04-08)
+
+
+### Features
+
+* async/await instead of promises ([ca3a7af](https://github.com/atom-ide-community/atom-ide-signature-help/commit/ca3a7af))
+
 ## [0.4.5](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.4.4...v0.4.5) (2019-03-21)
 
 
