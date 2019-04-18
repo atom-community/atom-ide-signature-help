@@ -1,3 +1,11 @@
+## [0.6.2](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.6.1...v0.6.2) (2019-04-18)
+
+
+### Bug Fixes
+
+* markdown text positioning ([35633a1](https://github.com/atom-ide-community/atom-ide-signature-help/commit/35633a1))
+* markdown text positioning ([1093569](https://github.com/atom-ide-community/atom-ide-signature-help/commit/1093569))
+
 ## [0.6.1](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.6.0...v0.6.1) (2019-04-18)
 
 
