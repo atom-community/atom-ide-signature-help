@@ -1,3 +1,12 @@
+# [0.6.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.5.0...v0.6.0) (2019-04-18)
+
+
+### Features
+
+* new layout of signature help ([2c93227](https://github.com/atom-ide-community/atom-ide-signature-help/commit/2c93227))
+* new signature help view showing parameter information ([f225874](https://github.com/atom-ide-community/atom-ide-signature-help/commit/f225874))
+* use new async renderer with default grammar input ([baef926](https://github.com/atom-ide-community/atom-ide-signature-help/commit/baef926))
+
 # [0.5.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.4.5...v0.5.0) (2019-04-08)
 
 
