@@ -1,3 +1,11 @@
+## [0.6.1](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.6.0...v0.6.1) (2019-04-18)
+
+
+### Bug Fixes
+
+* align parameter help with data tip ([f79cc99](https://github.com/atom-ide-community/atom-ide-signature-help/commit/f79cc99))
+* markdown text rendering ([b445749](https://github.com/atom-ide-community/atom-ide-signature-help/commit/b445749))
+
 # [0.6.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.5.0...v0.6.0) (2019-04-18)
 
 
