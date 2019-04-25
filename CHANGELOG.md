@@ -1,3 +1,10 @@
+## [0.6.3](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.6.2...v0.6.3) (2019-04-25)
+
+
+### Bug Fixes
+
+* parameter help documentation ([197ef36](https://github.com/atom-ide-community/atom-ide-signature-help/commit/197ef36))
+
 ## [0.6.2](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.6.1...v0.6.2) (2019-04-18)
 
 
