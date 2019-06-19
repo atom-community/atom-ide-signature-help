@@ -1,3 +1,10 @@
+## [0.6.4](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.6.3...v0.6.4) (2019-06-19)
+
+
+### Bug Fixes
+
+* upgrade packages ([ab3c4f2](https://github.com/atom-ide-community/atom-ide-signature-help/commit/ab3c4f2))
+
 ## [0.6.3](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.6.2...v0.6.3) (2019-04-25)
 
 
