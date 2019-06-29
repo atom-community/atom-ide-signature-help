@@ -1,3 +1,10 @@
+## [0.7.1](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.7.0...v0.7.1) (2019-06-29)
+
+
+### Bug Fixes
+
+* unreliable grammar name source in signature data tip ([8d0f2c8](https://github.com/atom-ide-community/atom-ide-signature-help/commit/8d0f2c8))
+
 # [0.7.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.6.4...v0.7.0) (2019-06-24)
 
 
