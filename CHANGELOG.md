@@ -1,3 +1,10 @@
+## [0.7.2](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.7.1...v0.7.2) (2020-04-13)
+
+
+### Bug Fixes
+
+* activation hook to improve the loading time by deferring it ([784a943](https://github.com/atom-ide-community/atom-ide-signature-help/commit/784a943))
+
 ## [0.7.1](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.7.0...v0.7.1) (2019-06-29)
 
 

@@ -1,7 +1,7 @@
 {
   "name": "atom-ide-signature-help",
   "main": "./lib/main.js",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "A replacement of the SignatureHelp functionality from the original Atom-IDE / Nuclide package developed by Facebook.",
   "keywords": [
     "atom-package",
@@ -40,8 +40,8 @@
     "prettier": "^1.18.2",
     "semantic-release": "^15.13.16"
   },
-   "activationHooks": [
-  "core:loaded-shell-environment"
+  "activationHooks": [
+    "core:loaded-shell-environment"
   ],
   "release": {
     "extends": "@semantic-release/apm-config"
