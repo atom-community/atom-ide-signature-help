@@ -1,3 +1,21 @@
+# [0.8.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.7.2...v0.8.0) (2020-07-23)
+
+
+### Bug Fixes
+
+* change invalidate to overlap ([325d9a8](https://github.com/atom-ide-community/atom-ide-signature-help/commit/325d9a89091a9f460ef5701d45ae69dc98a49b3b))
+* hide info bar ([9a6a893](https://github.com/atom-ide-community/atom-ide-signature-help/commit/9a6a893fa7489ad92419757cca69099731297748))
+* signature help config ([6c3cace](https://github.com/atom-ide-community/atom-ide-signature-help/commit/6c3cacec43214615dcc8234722e89c8ec117f08f))
+* wrong class for signature ([3d32b99](https://github.com/atom-ide-community/atom-ide-signature-help/commit/3d32b9943a6cf9dd57528b4518abe5714864b28d))
+
+
+### Features
+
+* add glowOnHover config ([6eab7f6](https://github.com/atom-ide-community/atom-ide-signature-help/commit/6eab7f6f45c8295e6b3935179db82f83f9491b4e))
+* fix the signature views (based on datatip view) ([45f7243](https://github.com/atom-ide-community/atom-ide-signature-help/commit/45f7243aa890ac00cd1007fb72efcc74623fd8e5))
+* fix the styles (based on datatip styles) ([604f06f](https://github.com/atom-ide-community/atom-ide-signature-help/commit/604f06f6e104b85e29a7a6d3dcba7ef9426e719b))
+* separate signature-glow class ([31ef467](https://github.com/atom-ide-community/atom-ide-signature-help/commit/31ef467e37b6245f918bbf5a8ad48827fe44cc2e))
+
 ## [0.7.2](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.7.1...v0.7.2) (2020-04-13)
 
 ### Bug Fixes
