@@ -24,6 +24,18 @@
   }
 }
 
+.signature-glow {
+  // glow on hover
+  transition: background-color 0.15s ease;
+  &:hover {
+    background-color: mix(
+      @syntax-background-color,
+      @syntax-selection-color,
+      50%
+    );
+  }
+}
+
 .signature-overlay {
   z-index: 12 !important; // HACK: exceed the z-index of
                           // .atom-dock-resize-handle-resizable, so that
@@ -47,10 +59,6 @@
 
   :last-child {
     margin-bottom: 0;
-  }
-
-  &:hover {
-    background-color: mix(@syntax-background-color, @syntax-selection-color, 50%);
   }
 
   &:not(:last-of-type) {
