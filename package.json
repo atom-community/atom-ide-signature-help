@@ -56,14 +56,6 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
-  "configSchema": {
-    "showSignatureHelpOnTyping": {
-      "title": "Flag denotes if the signature help should be shown automatically",
-      "description": "If set to true, the signature help is shown as soon as you start typing. Otherwise you will have to activate it via keypress.",
-      "type": "boolean",
-      "default": true
-    }
-  },
   "providedServices": {
     "signature-help": {
       "versions": {
