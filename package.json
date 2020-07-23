@@ -13,57 +13,35 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
+  "scripts": {
+    "format": "prettier --write .",
+    "bump": "ncu -u"
+  },
   "package-deps": [
     "atom-ide-markdown-service",
     "busy-signal"
   ],
   "dependencies": {
-    "atom-package-deps": "^5.1.0",
-    "dompurify": "^2.0.8",
+    "atom-package-deps": "^6.0.0",
+    "dompurify": "^2.0.12",
     "etch": "^0.14.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.3.5",
-    "@commitlint/config-conventional": "^8.3.4",
-    "@commitlint/travis-cli": "^8.3.5",
-    "@semantic-release/apm-config": "^8.0.0",
-    "@types/atom": "^1.40.2",
-    "@types/dompurify": "^2.0.1",
-    "@types/node": "^13.13.0",
-    "@types/react": "^16.9.34",
-    "@types/react-dom": "^16.9.6",
+    "@types/atom": "^1.40.4",
+    "@types/dompurify": "^2.0.2",
+    "@types/node": "^14.0.24",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
     "atom-languageclient": "^0.9.9",
-    "commitlint": "^8.3.5",
-    "husky": "^4.2.5",
-    "prettier": "^1.18.2",
-    "semantic-release": "^17.0.6"
+    "prettier": "^2.0.5",
+    "npm-check-updates": "^7.0.2",
+    "build-commit": "^0.1.1"
   },
   "activationHooks": [
     "core:loaded-shell-environment"
   ],
-  "release": {
-    "extends": "@semantic-release/apm-config"
-  },
-  "commitlint": {
-    "extends": [
-      "@commitlint/config-conventional"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "configSchema": {
-    "showSignatureHelpOnTyping": {
-      "title": "Flag denotes if the signature help should be shown automatically",
-      "description": "If set to true, the signature help is shown as soon as you start typing. Otherwise you will have to activate it via keypress.",
-      "type": "boolean",
-      "default": true
-    }
-  },
   "providedServices": {
     "signature-help": {
       "versions": {
