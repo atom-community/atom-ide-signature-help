@@ -13,25 +13,31 @@
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
+  "scripts": {
+    "format": "prettier --write .",
+    "bump": "ncu -u"
+  },
   "package-deps": [
     "atom-ide-markdown-service",
     "busy-signal"
   ],
   "dependencies": {
-    "atom-package-deps": "^5.1.0",
-    "dompurify": "^2.0.8",
+    "atom-package-deps": "^6.0.0",
+    "dompurify": "^2.0.12",
     "etch": "^0.14.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@types/atom": "^1.40.2",
-    "@types/dompurify": "^2.0.1",
-    "@types/node": "^13.13.0",
-    "@types/react": "^16.9.34",
-    "@types/react-dom": "^16.9.6",
+    "@types/atom": "^1.40.4",
+    "@types/dompurify": "^2.0.2",
+    "@types/node": "^14.0.24",
+    "@types/react": "^16.9.43",
+    "@types/react-dom": "^16.9.8",
     "atom-languageclient": "^0.9.9",
-    "prettier": "^1.18.2"
+    "prettier": "^2.0.5",
+    "npm-check-updates": "^7.0.2",
+    "build-commit": "^0.1.1"
   },
   "activationHooks": [
     "core:loaded-shell-environment"
