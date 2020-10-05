@@ -22,21 +22,22 @@
     "busy-signal"
   ],
   "dependencies": {
+    "atom-ide-base": "^1.8.0",
     "atom-package-deps": "^6.0.0",
-    "dompurify": "^2.0.12",
-    "etch": "^0.14.0",
+    "dompurify": "^2.1.1",
+    "etch": "^0.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@types/atom": "^1.40.4",
-    "@types/dompurify": "^2.0.3",
-    "@types/node": "^14.0.27",
-    "@types/react": "^16.9.46",
+    "@types/dompurify": "^2.0.4",
+    "@types/node": "^14.11.2",
+    "@types/react": "^16.9.50",
     "@types/react-dom": "^16.9.8",
     "atom-languageclient": "^0.9.9",
-    "prettier": "^2.0.5",
-    "npm-check-updates": "^7.1.0",
+    "prettier": "^2.1.2",
+    "npm-check-updates": "^9.0.3",
     "build-commit": "^0.1.1"
   },
   "activationHooks": [
