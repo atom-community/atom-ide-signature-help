@@ -1,3 +1,17 @@
+# [0.9.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.8.0...v0.9.0) (2020-10-05)
+
+
+### Bug Fixes
+
+* move use babel ([b73bc91](https://github.com/atom-ide-community/atom-ide-signature-help/commit/b73bc9120e7e7aee36f76ddc361185e14a30ede9))
+
+
+### Features
+
+* bump ([45029c2](https://github.com/atom-ide-community/atom-ide-signature-help/commit/45029c27f227538e3d3b24b04c9daf1c394d16ba))
+* install atom-ide-base ([c613375](https://github.com/atom-ide-community/atom-ide-signature-help/commit/c613375fa1d6069d58c51833a8fd8680ab2b8816))
+* use ProviderRegistry from atom-ide-base ([f4280cb](https://github.com/atom-ide-community/atom-ide-signature-help/commit/f4280cbc77ce5347c9b310dafccb22d32d779c7f))
+
 # [0.8.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.7.2...v0.8.0) (2020-07-23)
 
 ### Bug Fixes
