@@ -1,3 +1,18 @@
+# [0.10.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.9.0...v0.10.0) (2020-10-06)
+
+
+### Bug Fixes
+
+* pass markdown renderer ([99a9e66](https://github.com/atom-ide-community/atom-ide-signature-help/commit/99a9e66df59c3ad752f02d4fcbada94b0c49c64b))
+* pass strings as an array ([6f9c01e](https://github.com/atom-ide-community/atom-ide-signature-help/commit/6f9c01e68b743323165b797b28a984ae4bbc41c6))
+
+
+### Features
+
+* use atom-ide-base 1.8.0 ([c80c04d](https://github.com/atom-ide-community/atom-ide-signature-help/commit/c80c04d785bf5bbd6111b192a6ea951701ded911))
+* use getDocumentationHtml and getSnippetHtml from atom-ide-base ([8c5cdd0](https://github.com/atom-ide-community/atom-ide-signature-help/commit/8c5cdd005ed60f237c9be27881653ed3a025827a))
+* use ViewContainer from atom-ide-base ([b7cfbfb](https://github.com/atom-ide-community/atom-ide-signature-help/commit/b7cfbfb6f05f24689c90b162e4ffae18f698f587))
+
 # [0.9.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.8.0...v0.9.0) (2020-10-05)
 
 
