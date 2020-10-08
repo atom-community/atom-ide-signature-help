@@ -1,5 +1,5 @@
 dependencies:
-  atom-ide-base: 1.10.0
+  atom-ide-base: 1.11.2
   atom-package-deps: 6.0.0
 devDependencies:
   '@types/atom': 1.40.4
@@ -211,18 +211,30 @@ packages:
     dev: true
     resolution:
       integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k=
-  /atom-ide-base/1.10.0:
+  /atom-ide-base/1.11.2:
     dependencies:
+      atom-ide-markdown-service: 1.4.1
       atom-package-deps: 6.0.0
+      classnames: 2.2.6
       dompurify: 2.1.1
       etch: 0.14.1
       react: 16.13.1
       react-dom: 16.13.1_react@16.13.1
+      rxjs: 6.6.3
     dev: false
     engines:
       atom: '>=0.174.0 <2.0.0'
     resolution:
-      integrity: sha512-PDP/8w+Ej5Y3xtwDMk/cVElWhS3qDa9iHUcctJUhzqGpxQMYVby89/+kD7OEXFrkCP5bDsidOBhQMvOKS38aLQ==
+      integrity: sha512-di6N5i5CHnSYaeZih6dXiV2d2hbkNoBZD9Q7KQm0+wYYIltVT4lUWpN4u+i4NlK10cQQd1AAsyaB+rUA6q2YsA==
+  /atom-ide-markdown-service/1.4.1:
+    dependencies:
+      dompurify: 2.1.1
+      marked: 1.2.0
+    dev: false
+    engines:
+      atom: '>=1.0.0 <2.0.0'
+    resolution:
+      integrity: sha512-HDv8X7bgxZRZU2lslDTPhnWLVzbsoyL1K+EPCwrq6d88N+CMznNJMLUdfRZCYGfhcMm2qrXk8VP0Cw7ObL/+5g==
   /atom-languageclient/0.9.9:
     dependencies:
       fuzzaldrin-plus: 0.6.0
@@ -378,6 +390,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-cDhrG0jidz0NYxZqVa/5TvRFahI=
+  /classnames/2.2.6:
+    dev: false
+    resolution:
+      integrity: sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
   /clean-stack/2.2.0:
     dev: true
     engines:
@@ -1178,6 +1194,13 @@ packages:
       node: '>= 10'
     resolution:
       integrity: sha512-uHa4gv/NIdm9cUvfOhYb57nxrCY08iyMRXru0jbpaH57Q3NCge/ypY7fOvgCr8tPyucKrGbVndKhjXE0IX0VfQ==
+  /marked/1.2.0:
+    dev: false
+    engines:
+      node: '>= 8.16.2'
+    hasBin: true
+    resolution:
+      integrity: sha512-tiRxakgbNPBr301ihe/785NntvYyhxlqcL3YaC8CaxJQh7kiaEtrN9B/eK2I2943Yjkh5gw25chYFDQhOMCwMA==
   /mime-db/1.44.0:
     dev: true
     engines:
@@ -1856,6 +1879,14 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
+  /rxjs/6.6.3:
+    dependencies:
+      tslib: 1.14.0
+    dev: false
+    engines:
+      npm: '>=2.0.0'
+    resolution:
+      integrity: sha512-trsQc+xYYXZ3urjOiJOuCOa5N3jAZ3eiSpQB5hIT8zGlL2QfnHLJ2r7GMkBGuIausdJN1OneaI6gQlsqNHHmZQ==
   /safe-buffer/5.1.2:
     dev: true
     resolution:
@@ -2126,6 +2157,10 @@ packages:
       node: '>=0.8'
     resolution:
       integrity: sha512-nlLsUzgm1kfLXSXfRZMc1KLAugd4hqJHDTvc2hDIwS3mZAfMEuMbc03SujMF+GEcpaX/qboeycw6iO8JwVv2+g==
+  /tslib/1.14.0:
+    dev: false
+    resolution:
+      integrity: sha512-+Zw5lu0D9tvBMjGP8LpvMb0u2WW2QV3y+D8mO6J+cNzCYIN4sVy43Bf9vl92nqFahutN0I8zHa7cc4vihIshnw==
   /tunnel-agent/0.6.0:
     dependencies:
       safe-buffer: 5.2.1
@@ -2310,7 +2345,7 @@ packages:
 specifiers:
   '@types/atom': ^1.40.4
   '@types/node': ^14.11.2
-  atom-ide-base: ^1.10.0
+  atom-ide-base: ^1.11.2
   atom-languageclient: ^0.9.9
   atom-package-deps: ^6.0.0
   build-commit: ^0.1.1
