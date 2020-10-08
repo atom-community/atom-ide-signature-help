@@ -22,15 +22,15 @@
     "busy-signal"
   ],
   "dependencies": {
-    "atom-ide-base": "^1.10.0",
+    "atom-ide-base": "^1.11.2",
     "atom-package-deps": "^6.0.0"
   },
   "devDependencies": {
     "@types/atom": "^1.40.4",
-    "@types/node": "^14.11.2",
+    "@types/node": "^14.11.7",
     "atom-languageclient": "^0.9.9",
     "prettier": "^2.1.2",
-    "npm-check-updates": "^9.0.3",
+    "npm-check-updates": "^9.0.4",
     "build-commit": "^0.1.1"
   },
   "activationHooks": [
