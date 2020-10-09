@@ -1,3 +1,19 @@
+# [0.12.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.11.0...v0.12.0) (2020-10-09)
+
+
+### Bug Fixes
+
+* atom-ide-base 2.0.1 ([37315ee](https://github.com/atom-ide-community/atom-ide-signature-help/commit/37315eef00f8897727c746786b940b4441c0122f))
+* bring glowClass to signature package ([a9b0942](https://github.com/atom-ide-community/atom-ide-signature-help/commit/a9b0942f15d6bdd461f7e0ff9b5e7784901a1730))
+* reduce glow brightness ([238aafd](https://github.com/atom-ide-community/atom-ide-signature-help/commit/238aafd08e27db55137acedd7cf7ab2ed75e3f6a))
+
+
+### Features
+
+* atom-ide-base 2 ([8345a5b](https://github.com/atom-ide-community/atom-ide-signature-help/commit/8345a5baeb0a292401f6441e737dcc94d41adf9a))
+* use markdown-service from atom-ide-base ([50fe05f](https://github.com/atom-ide-community/atom-ide-signature-help/commit/50fe05f65d17b0aba14ef4c3a3255cf6570e9ece))
+* use self-contained ViewContainer components ([bede650](https://github.com/atom-ide-community/atom-ide-signature-help/commit/bede650dd7b625adb26031a57d69a447e7563e72))
+
 # [0.11.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.10.0...v0.11.0) (2020-10-08)
 
 
