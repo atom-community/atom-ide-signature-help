@@ -1,3 +1,17 @@
+# [0.13.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.12.0...v0.13.0) (2020-10-12)
+
+
+### Bug Fixes
+
+* set signature-element style in ViewContainer ([0197128](https://github.com/atom-ide-community/atom-ide-signature-help/commit/0197128fb1f05f54c34ab647cd6b4a601c527e91))
+* signature help is shown outside of the screen in the first lines ([953d754](https://github.com/atom-ide-community/atom-ide-signature-help/commit/953d754977d6406286fb45c1e34071cf2049ca05))
+
+
+### Features
+
+* atom-ide-base 2.1.0 ([d174619](https://github.com/atom-ide-community/atom-ide-signature-help/commit/d174619c07c0eb48b77adb0366e87775e8c442f3))
+* code highlighting + proper styling ([99a2451](https://github.com/atom-ide-community/atom-ide-signature-help/commit/99a245125b9310418d18e4c8efb8ab23c3ab36cb))
+
 # [0.12.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.11.0...v0.12.0) (2020-10-09)
 
 
