@@ -1,3 +1,10 @@
+## [0.13.1](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.13.0...v0.13.1) (2020-10-22)
+
+
+### Bug Fixes
+
+* bump ([4053252](https://github.com/atom-ide-community/atom-ide-signature-help/commit/40532524c2693846c1147e05e911dd9d8344ece7))
+
 # [0.13.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.12.0...v0.13.0) (2020-10-12)
 
 
