@@ -26,11 +26,11 @@
     "atom-package-deps": "^6.0.0"
   },
   "devDependencies": {
-    "@types/atom": "^1.40.4",
-    "@types/node": "^14.14.2",
-    "atom-languageclient": "^1.0.0",
-    "prettier": "^2.1.2",
-    "npm-check-updates": "^9.1.2",
+    "@types/atom": "^1.40.5",
+    "@types/node": "^14.14.16",
+    "atom-languageclient": "^1.0.5",
+    "prettier": "^2.2.1",
+    "npm-check-updates": "^10.2.5",
     "build-commit": "^0.1.1"
   },
   "activationHooks": [
