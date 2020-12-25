@@ -1,3 +1,10 @@
+## [0.13.2](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.13.1...v0.13.2) (2020-12-25)
+
+
+### Bug Fixes
+
+* transform overlay to make underneath of the signature help clickable ([999d089](https://github.com/atom-ide-community/atom-ide-signature-help/commit/999d089cd10978acf72fcaac6bb4abf276c852c9))
+
 ## [0.13.1](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.13.0...v0.13.1) (2020-10-22)
 
 
