@@ -18,7 +18,7 @@ You can also search for [packages](https://atom.io/packages/search?q=IDE) in Ato
 
 3. Install `busy-signal` package in Atom, which is used for signaling background tasks.
 
-![A screenshot of your package](https://atom-ide-community.github.io/assets/images/screenshot-sig-help.png)
+![screenshot](https://user-images.githubusercontent.com/16418197/106399337-a3164500-63dd-11eb-8241-d859b61e2d90.png)
 
 ## Contributing
 
