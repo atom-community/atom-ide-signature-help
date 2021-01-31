@@ -1,3 +1,10 @@
+## [0.13.3](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.13.2...v0.13.3) (2021-01-31)
+
+
+### Bug Fixes
+
+* use [@font-family](https://github.com/font-family) ([09fb34d](https://github.com/atom-ide-community/atom-ide-signature-help/commit/09fb34d645d18acd36512777d69a9f43b218d1ae))
+
 ## [0.13.2](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.13.1...v0.13.2) (2020-12-25)
 
 
