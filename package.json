@@ -1,7 +1,7 @@
 {
   "name": "atom-ide-signature-help",
   "main": "./lib/main.js",
-  "version": "0.13.3",
+  "version": "0.14.0",
   "description": "A replacement of the SignatureHelp functionality from the original Atom-IDE / Nuclide package developed by Facebook.",
   "keywords": [
     "atom-package",
@@ -18,8 +18,12 @@
     "bump": "ncu -u"
   },
   "package-deps": [
-    { "name:": "atom-ide-markdown-service" },
-    { "name:": "busy-signal" }
+    {
+      "name:": "atom-ide-markdown-service"
+    },
+    {
+      "name:": "busy-signal"
+    }
   ],
   "dependencies": {
     "atom-ide-base": "^2.2.0",

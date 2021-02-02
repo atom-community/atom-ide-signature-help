@@ -1,3 +1,17 @@
+# [0.14.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.13.3...v0.14.0) (2021-02-02)
+
+
+### Bug Fixes
+
+* add bottom border to signature-help ([53ce164](https://github.com/atom-ide-community/atom-ide-signature-help/commit/53ce164106a6d2c8b7226bc706ab5af3249e3930))
+* bump atom-ide-base ([14bfebd](https://github.com/atom-ide-community/atom-ide-signature-help/commit/14bfebda0c203cb2f4ef1d829a41d1cd075129ea))
+* update package-deps ([4154230](https://github.com/atom-ide-community/atom-ide-signature-help/commit/4154230676dc42bbd7ee180e6b2a05301ddc51a7))
+
+
+### Features
+
+* make signature-help text selectable and copyable ([ee08755](https://github.com/atom-ide-community/atom-ide-signature-help/commit/ee08755052367ac3586c300e9be63fb841a88ec1))
+
 ## [0.13.3](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.13.2...v0.13.3) (2021-01-31)
 
 
