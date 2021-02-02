@@ -1,5 +1,5 @@
 dependencies:
-  atom-ide-base: 2.1.1
+  atom-ide-base: 2.2.0
   atom-package-deps: 6.0.0
 devDependencies:
   '@types/atom': 1.40.5
@@ -215,10 +215,10 @@ packages:
     dev: true
     resolution:
       integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k=
-  /atom-ide-base/2.1.1:
+  /atom-ide-base/2.2.0:
     dependencies:
       atom-ide-markdown-service: 1.6.0
-      atom-package-deps: 6.0.0
+      atom-package-deps: 7.1.0
       classnames: 2.2.6
       dompurify: 2.1.1
       etch: 0.14.1
@@ -229,7 +229,7 @@ packages:
     engines:
       atom: '>=0.174.0 <2.0.0'
     resolution:
-      integrity: sha512-84ffxG38yZFIlHoHBqJs4hrq0D36my9JFyD/mopfYkh64ZgLPCixdvgVOrkR6mHX6bGPgXFus/wxu6K/0gsp2Q==
+      integrity: sha512-TIxOJYDbrvRSvT/seDoQ9eaHb2WcH07jB47MRBYw+I9Zo7ox4rIW2I75Q+9igxWsF+8ng3/R9I0HB6/uDkKMdQ==
   /atom-ide-markdown-service/1.6.0:
     dependencies:
       dompurify: 2.1.1
@@ -256,6 +256,11 @@ packages:
     dev: false
     resolution:
       integrity: sha512-9UQx2sTvBiaIHcZ3le/B0djM+jsZXBQRPXatrmtNfjkbAOV5bGrcXzcV4U0EBfGdzB7QmWeOnwMIJwa3HvW7Kg==
+  /atom-package-deps/7.1.0:
+    dev: false
+    hasBin: true
+    resolution:
+      integrity: sha512-qSCRGyL8CE7Pwm/D5e0BeD1MJQF+a05Ky3RdQ4m9buIKdkHOq3cSlU+G9j+2S2GD+clp9Z3Hl4dkrFemv0UxVg==
   /aws-sign2/0.7.0:
     dev: true
     resolution:
@@ -538,7 +543,7 @@ packages:
   /debug/4.1.1:
     dependencies:
       ms: 2.1.2
-    deprecated: 'Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)'
+    deprecated: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
     dev: true
     resolution:
       integrity: sha512-pYAIzeRo8J6KPEaJ0VWOh5Pzkbw/RetuzehGM7QRRX5he4fPHx2rdKMB256ehJCkX+XRQm16eZLqLNS8RSZXZw==
@@ -1903,7 +1908,7 @@ packages:
       tough-cookie: 2.5.0
       tunnel-agent: 0.6.0
       uuid: 3.4.0
-    deprecated: 'request has been deprecated, see https://github.com/request/request/issues/3142'
+    deprecated: request has been deprecated, see https://github.com/request/request/issues/3142
     dev: true
     engines:
       node: '>= 6'
@@ -2424,7 +2429,7 @@ packages:
 specifiers:
   '@types/atom': ^1.40.5
   '@types/node': ^14.14.16
-  atom-ide-base: ^2.1.1
+  atom-ide-base: ^2.2.0
   atom-languageclient: ^1.0.5
   atom-package-deps: ^6.0.0
   build-commit: ^0.1.1
