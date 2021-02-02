@@ -27,7 +27,7 @@ jobs:
       - name: Install base dependencies
         run: |
           apm install
-          ./node_modules/.bin/atom-package-deps ${{ github.workspace }}
+          # ./node_modules/.bin/atom-package-deps ${{ github.workspace }}
 
       # - name: Run tests 👩🏾‍💻
       #   run: npm run test
