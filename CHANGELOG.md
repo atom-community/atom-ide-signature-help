@@ -1,3 +1,10 @@
+## [0.14.1](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.14.0...v0.14.1) (2021-02-03)
+
+
+### Bug Fixes
+
+* downgrade package-deps ([89c08f9](https://github.com/atom-ide-community/atom-ide-signature-help/commit/89c08f93104ea50d831b6290328af11572cdbb04))
+
 # [0.14.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.13.3...v0.14.0) (2021-02-02)
 
 
