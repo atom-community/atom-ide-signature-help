@@ -1,3 +1,26 @@
+# [0.15.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.14.1...v0.15.0) (2021-02-06)
+
+
+### Bug Fixes
+
+*  signature.parameters might be undefined ([b889ea8](https://github.com/atom-ide-community/atom-ide-signature-help/commit/b889ea8440bbbb6f0e8b6e802377d92e212a4cf8))
+* accept null in updateCurrentEditor ([286a0f1](https://github.com/atom-ide-community/atom-ide-signature-help/commit/286a0f12401576f45432261d3badd1c4a811d495))
+* do not null set editorSubscriptions ([2e93f07](https://github.com/atom-ide-community/atom-ide-signature-help/commit/2e93f07cec3b69f82f8e6fbb3e5926553aeb26ce))
+* do not null set signatureHelpDisposables ([3ae024d](https://github.com/atom-ide-community/atom-ide-signature-help/commit/3ae024dae1ad68c0292a68e960dfc8a8de58658b))
+* do not null set subs ([ff548d8](https://github.com/atom-ide-community/atom-ide-signature-help/commit/ff548d8a97a855b3c4214cef04c69d11ec310a5b))
+* handle the signature documentation and parameter documentation better ([761545f](https://github.com/atom-ide-community/atom-ide-signature-help/commit/761545f8de546099dc6c01b184ab2acafe6e18f8))
+* move props from constructor to props ([516cf00](https://github.com/atom-ide-community/atom-ide-signature-help/commit/516cf005dfce39dda2d3a7e4ff4b0b8b29f6dbc6))
+* remove undefined value ([92d81a3](https://github.com/atom-ide-community/atom-ide-signature-help/commit/92d81a324b542b23c2a612cbcb7c6ce34d94bd41))
+* triggerCharacters might be undefined ([8aaabc9](https://github.com/atom-ide-community/atom-ide-signature-help/commit/8aaabc994e3f1ca127c7790b152ab4c8d1913f8a))
+* watchEditor might return null ([b5583e2](https://github.com/atom-ide-community/atom-ide-signature-help/commit/b5583e201ff3c1f784c2a3919baa8a90f0ec1b7b))
+
+
+### Features
+
+* convert main to TypeScript ([e39d52c](https://github.com/atom-ide-community/atom-ide-signature-help/commit/e39d52c045a130729b229ad454679578464a033f))
+* convert SignatureHelpManager to TypeScript ([6c18c0b](https://github.com/atom-ide-community/atom-ide-signature-help/commit/6c18c0b0d906f23c1ad568133ef89e50d98b16fc))
+* convert to typescript ([e334fc6](https://github.com/atom-ide-community/atom-ide-signature-help/commit/e334fc61d11133d23e96ac33ef1e6dcbac22483a))
+
 ## [0.14.1](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.14.0...v0.14.1) (2021-02-03)
 
 
