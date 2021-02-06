@@ -1,4 +1,4 @@
-import { CompositeDisposable, Disposable, Range, Point, TextEditor } from "atom"
+import { CompositeDisposable, Disposable, Range, Point, TextEditor, TextEditorElement } from "atom"
 import { ProviderRegistry } from "atom-ide-base/commons-atom/ProviderRegistry"
 import { ViewContainer } from "atom-ide-base/commons-ui/float-pane/ViewContainer"
 import { makeOverlaySelectable, makeOverLayCopyable } from "atom-ide-base/commons-ui/float-pane/selectable-overlay"
@@ -24,7 +24,7 @@ export class SignatureHelpManager {
   /**
    * holds a reference to the current watched Atom text editor viewbuffer
    */
-  editorView = null
+  editorView: TextEditorElement | null = null
   /**
    * holds a reference to all disposable items for the current watched Atom text editor
    */
