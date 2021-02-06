@@ -48,7 +48,7 @@ export class SignatureHelpManager {
     this.subscriptions.add(
       atom.workspace.observeTextEditors((editor) => {
         const disposable = this.watchEditor(editor)
-        editor.onDidDestroy(() => disposable.dispose())
+        editor.onDidDestroy(() => disposable?.dispose())
       }),
       atom.commands.add("atom-text-editor", {
         "signature-help:show": (evt) => {
