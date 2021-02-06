@@ -1,13 +1,9 @@
-"use babel"
-
-// @ts-check
-
 const { CompositeDisposable, Disposable, Range, Point, TextEditor } = require("atom")
 import { ProviderRegistry } from "atom-ide-base/commons-atom/ProviderRegistry"
 import { ViewContainer } from "atom-ide-base/commons-ui/float-pane/ViewContainer"
 import { makeOverlaySelectable, makeOverLayCopyable } from "atom-ide-base/commons-ui/float-pane/selectable-overlay"
 
-module.exports = class SignatureHelpManager {
+export default class SignatureHelpManager {
   constructor() {
     /**
      * holds a reference to disposable items from this data tip manager
