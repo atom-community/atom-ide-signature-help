@@ -16,7 +16,7 @@ export function activate() {
   require("atom-package-deps")
     .install("atom-ide-signature-help")
     .then(() => {
-      signatureHelpManager.initialize(renderer)
+      signatureHelpManager.initialize()
     })
 }
 
