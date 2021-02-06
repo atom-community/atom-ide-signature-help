@@ -1,7 +1,7 @@
 import { CompositeDisposable, Disposable, Range, Point, TextEditor, TextEditorElement } from "atom"
 import { ProviderRegistry } from "atom-ide-base/commons-atom/ProviderRegistry"
 import { ViewContainer } from "atom-ide-base/commons-ui/float-pane/ViewContainer"
-import { makeOverlaySelectable, makeOverLayCopyable } from "atom-ide-base/commons-ui/float-pane/selectable-overlay"
+import { makeOverlaySelectable } from "atom-ide-base/commons-ui/float-pane/selectable-overlay"
 import { SignatureHelpRegistry, SignatureHelpProvider } from "atom-ide-base"
 
 export class SignatureHelpManager {
@@ -282,7 +282,6 @@ export class SignatureHelpManager {
     })
 
     makeOverlaySelectable(editor, view.element)
-    makeOverLayCopyable(view.element)
 
     const marker = editor.decorateMarker(overlayMarker, {
       type: "overlay",
@@ -312,7 +311,9 @@ export class SignatureHelpManager {
       } else {
         // move right so it does not overlap with auto-complete-list
         // @ts-ignore
-        const autoCompleteList = (editor.getElement() as TextEditorElement).querySelector("autocomplete-suggestion-list")
+        const autoCompleteList = (editor.getElement() as TextEditorElement).querySelector(
+          "autocomplete-suggestion-list"
+        )
         if (autoCompleteList) {
           overlay.style.transform = `translateX(${autoCompleteList.clientWidth}px)`
         } else {
