@@ -28,7 +28,7 @@ export class SignatureHelpManager {
   /**
    * holds a reference to all disposable items for the current watched Atom text editor
    */
-  editorSubscriptions: CompositeDisposable | null = null
+  editorSubscriptions: CompositeDisposable = new CompositeDisposable()
   /**
    * holds a reference to all disposable items for the current signature help
    */
@@ -78,10 +78,7 @@ export class SignatureHelpManager {
   dispose() {
     this.signatureHelpDisposables.dispose()
 
-    if (this.editorSubscriptions) {
-      this.editorSubscriptions.dispose()
-    }
-    this.editorSubscriptions = null
+    this.editorSubscriptions.dispose()
 
     this.subscriptions.dispose()
   }
@@ -139,10 +136,7 @@ export class SignatureHelpManager {
     if (editor === this.editor) {
       return
     }
-    if (this.editorSubscriptions) {
-      this.editorSubscriptions.dispose()
-    }
-    this.editorSubscriptions = null
+    this.editorSubscriptions.dispose()
 
     // Stop tracking editor + buffer
     this.unmountDataTip()
