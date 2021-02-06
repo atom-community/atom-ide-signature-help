@@ -143,7 +143,7 @@ export class SignatureHelpManager {
    * it has been decided to track this instance
    * @param editor the Atom Text editor instance to be tracked
    */
-  updateCurrentEditor(editor: TextEditor) {
+  updateCurrentEditor(editor: TextEditor | null) {
     if (editor === this.editor) {
       return
     }
@@ -157,7 +157,7 @@ export class SignatureHelpManager {
     this.editor = null
     this.editorView = null
 
-    if (!atom.workspace.isTextEditor(editor)) {
+    if (!editor || !atom.workspace.isTextEditor(editor)) {
       return
     }
 
@@ -306,6 +306,7 @@ export class SignatureHelpManager {
       }
       const hight = view.element.getBoundingClientRect().height
       const lineHight = editor.getLineHeightInPixels()
+      //@ts-ignore internal type
       const availableHight = (position.row - editor.getFirstVisibleScreenRow()) * lineHight
       if (hight < availableHight + 80) {
         overlay.style.transform = `translateY(-${lineHight + hight}px)`
