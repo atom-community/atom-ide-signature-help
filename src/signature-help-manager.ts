@@ -86,10 +86,7 @@ export class SignatureHelpManager {
     }
     this.editorSubscriptions = null
 
-    if (this.subscriptions) {
-      this.subscriptions.dispose()
-    }
-    this.subscriptions = null
+    this.subscriptions.dispose()
   }
 
   /**
@@ -131,9 +128,7 @@ export class SignatureHelpManager {
 
     return new Disposable(() => {
       disposable.dispose()
-      if (this.subscriptions != null) {
-        this.subscriptions.remove(disposable)
-      }
+      this.subscriptions.remove(disposable)
       this.watchedEditors.delete(editor)
     })
   }
