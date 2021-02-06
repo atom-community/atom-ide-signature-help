@@ -214,7 +214,7 @@ export class SignatureHelpManager {
         const index = signatureHelp.activeSignature || 0
         const signature = signatureHelp.signatures[index]
         const paramIndex = signatureHelp.activeParameter || 0
-        const parameter = signature.parameters[paramIndex] || null
+        const parameter = signature.parameters !== undefined ? (signature.parameters[paramIndex] || null) : null
 
         // clear last data tip
         this.unmountDataTip()
