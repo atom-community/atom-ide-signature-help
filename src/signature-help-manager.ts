@@ -1,53 +1,44 @@
-const { CompositeDisposable, Disposable, Range, Point, TextEditor } = require("atom")
+import { CompositeDisposable, Disposable, Range, Point, TextEditor } from "atom"
 import { ProviderRegistry } from "atom-ide-base/commons-atom/ProviderRegistry"
 import { ViewContainer } from "atom-ide-base/commons-ui/float-pane/ViewContainer"
 import { makeOverlaySelectable, makeOverLayCopyable } from "atom-ide-base/commons-ui/float-pane/selectable-overlay"
 
 export default class SignatureHelpManager {
-  constructor() {
-    /**
-     * holds a reference to disposable items from this data tip manager
-     * @type {CompositeDisposable}
-     */
-    this.subscriptions = new CompositeDisposable()
-    /**
-     * holds a list of registered data tip providers
-     * @type {ProviderRegistry}
-     */
-    this.providerRegistry = new ProviderRegistry()
-    /**
-     * holds a weak reference to all watched Atom text editors
-     * @type {Array<TextEditor>}
-     */
-    this.watchedEditors = new WeakSet()
-    /**
-     * holds a reference to the current watched Atom text editor
-     * @type {TextEditor}
-     */
-    this.editor = null
-    /**
-     * holds a reference to the current watched Atom text editor viewbuffer
-     */
-    this.editorView = null
-    /**
-     * holds a reference to all disposable items for the current watched Atom text editor
-     * @type {CompositeDisposable}
-     */
-    this.editorSubscriptions = null
-    /**
-     * holds a reference to all disposable items for the current signature help
-     * @type {CompositeDisposable}
-     */
-    this.signatureHelpDisposables = null
-    /**
-     * config flag denoting if the signature help should be shown during typing automatically
-     * @type {Boolean}
-     */
-    this.showSignatureHelpOnTyping = false
+  /**
+   * holds a reference to disposable items from this data tip manager
+   */
+  subscriptions = new CompositeDisposable()
+  /**
+   * holds a list of registered data tip providers
+   */
+  providerRegistry = new ProviderRegistry()
+  /**
+   * holds a weak reference to all watched Atom text editors
+   */
+  watchedEditors = new WeakSet<TextEditor>()
+  /**
+   * holds a reference to the current watched Atom text editor
+   */
+  editor: TextEditor | null = null
+  /**
+   * holds a reference to the current watched Atom text editor viewbuffer
+   */
+  editorView = null
+  /**
+   * holds a reference to all disposable items for the current watched Atom text editor
+   */
+  editorSubscriptions: CompositeDisposable | null = null
+  /**
+   * holds a reference to all disposable items for the current signature help
+   */
+  signatureHelpDisposables: CompositeDisposable | null = null
+  /**
+   * config flag denoting if the signature help should be shown during typing automatically
+   */
+  showSignatureHelpOnTyping = false
 
-    // glow on hover class
-    this.glowClass = atom.config.get("atom-ide-signature-help.glowOnHover") ? "signature-glow" : ""
-  }
+  // glow on hover class
+  glowClass = atom.config.get("atom-ide-signature-help.glowOnHover") ? "signature-glow" : ""
 
   /**
    * initialization routine
