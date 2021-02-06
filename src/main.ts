@@ -13,8 +13,8 @@ export function activate() {
   subscriptions = new CompositeDisposable()
   if (!signatureHelpManager) signatureHelpManager = new SignatureHelpManager()
   subscriptions.add(signatureHelpManager)
-  require("atom-package-deps")
-    .install("atom-ide-signature-help")
+  ;(require("atom-package-deps") as typeof import("atom-package-deps"))
+    .install("atom-ide-signature-help", true)
     .then(() => {
       signatureHelpManager.initialize()
     })
