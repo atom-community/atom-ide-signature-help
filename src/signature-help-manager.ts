@@ -1,7 +1,7 @@
 import { CompositeDisposable, Disposable, Range, Point, TextEditor, TextEditorElement } from "atom"
 import { ProviderRegistry } from "atom-ide-base/commons-atom/ProviderRegistry"
 import { ViewContainer } from "atom-ide-base/commons-ui/float-pane/ViewContainer"
-import { makeOverlaySelectable, makeOverLayCopyable } from "atom-ide-base/commons-ui/float-pane/selectable-overlay"
+import { makeOverlaySelectable } from "atom-ide-base/commons-ui/float-pane/selectable-overlay"
 import { SignatureHelpRegistry, SignatureHelpProvider } from "atom-ide-base"
 
 export class SignatureHelpManager {
@@ -282,7 +282,6 @@ export class SignatureHelpManager {
     })
 
     makeOverlaySelectable(editor, view.element)
-    makeOverLayCopyable(view.element)
 
     const marker = editor.decorateMarker(overlayMarker, {
       type: "overlay",
