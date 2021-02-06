@@ -32,7 +32,7 @@ export class SignatureHelpManager {
   /**
    * holds a reference to all disposable items for the current signature help
    */
-  signatureHelpDisposables: CompositeDisposable | null = null
+  signatureHelpDisposables: CompositeDisposable = new CompositeDisposable()
   /**
    * config flag denoting if the signature help should be shown during typing automatically
    */
@@ -76,10 +76,7 @@ export class SignatureHelpManager {
    * dispose function to clean up any disposable references used
    */
   dispose() {
-    if (this.signatureHelpDisposables) {
-      this.signatureHelpDisposables.dispose()
-    }
-    this.signatureHelpDisposables = null
+    this.signatureHelpDisposables.dispose()
 
     if (this.editorSubscriptions) {
       this.editorSubscriptions.dispose()
@@ -331,9 +328,6 @@ export class SignatureHelpManager {
    * unmounts / hides the most recent data tip view component
    */
   unmountDataTip() {
-    if (this.signatureHelpDisposables) {
-      this.signatureHelpDisposables.dispose()
-    }
-    this.signatureHelpDisposables = null
+    this.signatureHelpDisposables.dispose()
   }
 }
