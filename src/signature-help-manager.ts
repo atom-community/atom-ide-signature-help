@@ -1,57 +1,45 @@
-"use babel"
-
-// @ts-check
-
-const { CompositeDisposable, Disposable, Range, Point, TextEditor } = require("atom")
+import { CompositeDisposable, Disposable, Range, Point, TextEditor, TextEditorElement } from "atom"
 import { ProviderRegistry } from "atom-ide-base/commons-atom/ProviderRegistry"
 import { ViewContainer } from "atom-ide-base/commons-ui/float-pane/ViewContainer"
 import { makeOverlaySelectable, makeOverLayCopyable } from "atom-ide-base/commons-ui/float-pane/selectable-overlay"
+import { SignatureHelpRegistry, SignatureHelpProvider } from "atom-ide-base"
 
-module.exports = class SignatureHelpManager {
-  constructor() {
-    /**
-     * holds a reference to disposable items from this data tip manager
-     * @type {CompositeDisposable}
-     */
-    this.subscriptions = new CompositeDisposable()
-    /**
-     * holds a list of registered data tip providers
-     * @type {ProviderRegistry}
-     */
-    this.providerRegistry = new ProviderRegistry()
-    /**
-     * holds a weak reference to all watched Atom text editors
-     * @type {Array<TextEditor>}
-     */
-    this.watchedEditors = new WeakSet()
-    /**
-     * holds a reference to the current watched Atom text editor
-     * @type {TextEditor}
-     */
-    this.editor = null
-    /**
-     * holds a reference to the current watched Atom text editor viewbuffer
-     */
-    this.editorView = null
-    /**
-     * holds a reference to all disposable items for the current watched Atom text editor
-     * @type {CompositeDisposable}
-     */
-    this.editorSubscriptions = null
-    /**
-     * holds a reference to all disposable items for the current signature help
-     * @type {CompositeDisposable}
-     */
-    this.signatureHelpDisposables = null
-    /**
-     * config flag denoting if the signature help should be shown during typing automatically
-     * @type {Boolean}
-     */
-    this.showSignatureHelpOnTyping = false
+export class SignatureHelpManager {
+  /**
+   * holds a reference to disposable items from this data tip manager
+   */
+  subscriptions = new CompositeDisposable()
+  /**
+   * holds a list of registered data tip providers
+   */
+  providerRegistry = new ProviderRegistry<SignatureHelpProvider>()
+  /**
+   * holds a weak reference to all watched Atom text editors
+   */
+  watchedEditors = new WeakSet<TextEditor>()
+  /**
+   * holds a reference to the current watched Atom text editor
+   */
+  editor: TextEditor | null = null
+  /**
+   * holds a reference to the current watched Atom text editor viewbuffer
+   */
+  editorView: TextEditorElement | null = null
+  /**
+   * holds a reference to all disposable items for the current watched Atom text editor
+   */
+  editorSubscriptions: CompositeDisposable = new CompositeDisposable()
+  /**
+   * holds a reference to all disposable items for the current signature help
+   */
+  signatureHelpDisposables: CompositeDisposable = new CompositeDisposable()
+  /**
+   * config flag denoting if the signature help should be shown during typing automatically
+   */
+  showSignatureHelpOnTyping = false
 
-    // glow on hover class
-    this.glowClass = atom.config.get("atom-ide-signature-help.glowOnHover") ? "signature-glow" : ""
-  }
+  // glow on hover class
+  glowClass = atom.config.get("atom-ide-signature-help.glowOnHover") ? "signature-glow" : ""
 
   /**
    * initialization routine
@@ -60,7 +48,7 @@ module.exports = class SignatureHelpManager {
     this.subscriptions.add(
       atom.workspace.observeTextEditors((editor) => {
         const disposable = this.watchEditor(editor)
-        editor.onDidDestroy(() => disposable.dispose())
+        editor.onDidDestroy(() => disposable?.dispose())
       }),
       atom.commands.add("atom-text-editor", {
         "signature-help:show": (evt) => {
@@ -88,27 +76,17 @@ module.exports = class SignatureHelpManager {
    * dispose function to clean up any disposable references used
    */
   dispose() {
-    if (this.signatureHelpDisposables) {
-      this.signatureHelpDisposables.dispose()
-    }
-    this.signatureHelpDisposables = null
+    this.signatureHelpDisposables.dispose()
 
-    if (this.editorSubscriptions) {
-      this.editorSubscriptions.dispose()
-    }
-    this.editorSubscriptions = null
+    this.editorSubscriptions.dispose()
 
-    if (this.subscriptions) {
-      this.subscriptions.dispose()
-    }
-    this.subscriptions = null
+    this.subscriptions.dispose()
   }
 
   /**
    * returns the provider registry as a consumable service
-   * @return {AtomIDE.SignatureHelpRegistry} [description]
    */
-  get signatureHelpRegistry() {
+  get signatureHelpRegistry(): SignatureHelpRegistry {
     return (provider) => {
       return this.providerRegistry.addProvider(provider)
     }
@@ -116,9 +94,9 @@ module.exports = class SignatureHelpManager {
 
   /**
    * checks and setups an Atom Text editor instance for tracking cursor/mouse movements
-   * @param  {TextEditor} editor  a valid Atom Text editor instance
+   * @param editor a valid Atom Text editor instance
    */
-  watchEditor(editor) {
+  watchEditor(editor: TextEditor) {
     if (this.watchedEditors.has(editor)) {
       return
     }
@@ -144,9 +122,7 @@ module.exports = class SignatureHelpManager {
 
     return new Disposable(() => {
       disposable.dispose()
-      if (this.subscriptions != null) {
-        this.subscriptions.remove(disposable)
-      }
+      this.subscriptions.remove(disposable)
       this.watchedEditors.delete(editor)
     })
   }
@@ -154,23 +130,20 @@ module.exports = class SignatureHelpManager {
   /**
    * updates the internal references to a specific Atom Text editor instance in case
    * it has been decided to track this instance
-   * @param  {TextEditor} editor the Atom Text editor instance to be tracked
+   * @param editor the Atom Text editor instance to be tracked
    */
-  updateCurrentEditor(editor) {
+  updateCurrentEditor(editor: TextEditor | null) {
     if (editor === this.editor) {
       return
     }
-    if (this.editorSubscriptions) {
-      this.editorSubscriptions.dispose()
-    }
-    this.editorSubscriptions = null
+    this.editorSubscriptions.dispose()
 
     // Stop tracking editor + buffer
     this.unmountDataTip()
     this.editor = null
     this.editorView = null
 
-    if (!atom.workspace.isTextEditor(editor)) {
+    if (!editor || !atom.workspace.isTextEditor(editor)) {
       return
     }
 
@@ -183,7 +156,9 @@ module.exports = class SignatureHelpManager {
       return
     }
 
-    this.editor.getElement().addEventListener("keydown", (evt) => {
+    // @ts-ignore
+    const editorElement: TextEditorElement = this.editor.getElement()
+    editorElement.addEventListener("keydown", (evt) => {
       if (evt.keyCode === 27) {
         this.unmountDataTip()
       }
@@ -212,26 +187,25 @@ module.exports = class SignatureHelpManager {
         // Use the character before the cursor as the 'trigger character'.
         const index = Math.max(0, cursorPosition.column - change.newRange.start.column - 1)
 
-        const provider = this.providerRegistry.getProviderForEditor(this.editor)
+        const provider = this.providerRegistry.getProviderForEditor(editor)
 
         if (!provider) {
           return
         }
 
-        if (provider.triggerCharacters.has(change.newText[index])) {
-          this.showSignatureHelp(provider, this.editor, cursorPosition)
+        if (provider.triggerCharacters?.has(change.newText[index])) {
+          this.showSignatureHelp(provider, editor, cursorPosition)
         }
       })
     )
   }
 
   /**
-   * [showSignatureHelp description]
-   * @param  {AtomIDE.SignatureHelpProvider} provider [description]
-   * @param  {TextEditor} editor   [description]
-   * @param  {Point} position [description]
+   * @param  provider
+   * @param  editor
+   * @param  position
    */
-  async showSignatureHelp(provider, editor, position) {
+  async showSignatureHelp(provider: SignatureHelpProvider, editor: TextEditor, position: Point) {
     try {
       const signatureHelp = await provider.getSignatureHelp(editor, position)
 
@@ -241,25 +215,37 @@ module.exports = class SignatureHelpManager {
         const index = signatureHelp.activeSignature || 0
         const signature = signatureHelp.signatures[index]
         const paramIndex = signatureHelp.activeParameter || 0
-        const parameter = signature.parameters[paramIndex] || null
+        const parameter = signature.parameters !== undefined ? signature.parameters[paramIndex] || null : null
 
         // clear last data tip
         this.unmountDataTip()
 
-        const grammar = editor.getGrammar().scopeName.toLowerCase()
-        let doc = null
-
+        let doc = ""
         if (parameter) {
-          doc = `<b>${parameter.label}</b> ${
-            parameter.documentation && parameter.documentation.value
-              ? parameter.documentation.value
-              : parameter.documentation || ""
-          }`
+          let parameterDocumentation = ""
+          if (parameter.documentation === undefined) {
+            // parameterDocumentation = ""
+          } else if (typeof parameter.documentation === "string") {
+            parameterDocumentation = parameter.documentation
+          } else if (typeof (parameter.documentation as { value: string }).value === "string") {
+            // TODO undocumented type?
+            parameterDocumentation = (parameter.documentation as { value: string }).value
+          }
+          doc = `<b>${parameter.label}</b> ${parameterDocumentation}`
         } else if (signature.documentation) {
-          doc = signature.documentation.kind ? signature.documentation.value : signature.documentation
-        } else {
-          doc = ""
+          let signatureDocumentation = ""
+          if (signature.documentation === undefined) {
+            // signatureDocumentation = ""
+          } else if (typeof signature.documentation === "string") {
+            signatureDocumentation = signature.documentation
+          } else if (typeof (signature.documentation as { value: string }).value === "string") {
+            // TODO undocumented type?
+            signatureDocumentation = (signature.documentation as { value: string }).value
+          }
+          doc = signatureDocumentation
         }
+
+        const grammar = editor.getGrammar().scopeName.toLowerCase()
         const signatureHelpView = new ViewContainer({
           snippet: {
             snippet: signature.label,
@@ -282,14 +268,14 @@ module.exports = class SignatureHelpManager {
     }
   }
 
-  /*
+  /**
    * mounts displays a signature help view component at a specific position in a given Atom Text editor
-   * @param  {TextEditor} editor   the Atom Text editor instance to host the data tip view
-   * @param  {Point} position      the position on which to show the signature help view
-   * @param  {SignatureHelpView} view    the signature help component to display
-   * @return {CompositeDisposable}  a composite object to release references at a later stage
+   * @param  editor   the Atom Text editor instance to host the data tip view
+   * @param  position the position on which to show the signature help view
+   * @param  view   the signature help component to display
+   * @return a composite object to release references at a later stage
    */
-  mountSignatureHelp(editor, position, view) {
+  mountSignatureHelp(editor: TextEditor, position: Point, view: ViewContainer) {
     let disposables = new CompositeDisposable()
     const overlayMarker = editor.markBufferRange(new Range(position, position), {
       invalidate: "overlap", // TODO It was never. Shouldn't be surround?
@@ -319,12 +305,14 @@ module.exports = class SignatureHelpManager {
       }
       const hight = view.element.getBoundingClientRect().height
       const lineHight = editor.getLineHeightInPixels()
+      //@ts-ignore internal type
       const availableHight = (position.row - editor.getFirstVisibleScreenRow()) * lineHight
       if (hight < availableHight + 80) {
         overlay.style.transform = `translateY(-${lineHight + hight}px)`
       } else {
         // move right so it does not overlap with auto-complete-list
-        const autoCompleteList = editor.getElement().querySelector("autocomplete-suggestion-list")
+        // @ts-ignore
+        const autoCompleteList = (editor.getElement() as TextEditorElement).querySelector("autocomplete-suggestion-list")
         if (autoCompleteList) {
           overlay.style.transform = `translateX(${autoCompleteList.clientWidth}px)`
         } else {
@@ -347,9 +335,6 @@ module.exports = class SignatureHelpManager {
    * unmounts / hides the most recent data tip view component
    */
   unmountDataTip() {
-    if (this.signatureHelpDisposables) {
-      this.signatureHelpDisposables.dispose()
-    }
-    this.signatureHelpDisposables = null
+    this.signatureHelpDisposables.dispose()
   }
 }
