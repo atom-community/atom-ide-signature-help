@@ -11,7 +11,7 @@ let signatureHelpManager: SignatureHelpManager
 export function activate() {
   // Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
   subscriptions = new CompositeDisposable()
-  if (!signatureHelpManager) signatureHelpManager = new SignatureHelpManager()
+  signatureHelpManager = new SignatureHelpManager()
   subscriptions.add(signatureHelpManager)
   ;(require("atom-package-deps") as typeof import("atom-package-deps"))
     .install("atom-ide-signature-help", true)
