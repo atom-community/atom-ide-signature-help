@@ -214,25 +214,37 @@ export class SignatureHelpManager {
         const index = signatureHelp.activeSignature || 0
         const signature = signatureHelp.signatures[index]
         const paramIndex = signatureHelp.activeParameter || 0
-        const parameter = signature.parameters !== undefined ? (signature.parameters[paramIndex] || null) : null
+        const parameter = signature.parameters !== undefined ? signature.parameters[paramIndex] || null : null
 
         // clear last data tip
         this.unmountDataTip()
 
-        const grammar = editor.getGrammar().scopeName.toLowerCase()
-        let doc = null
-
+        let doc = ""
         if (parameter) {
-          doc = `<b>${parameter.label}</b> ${
-            parameter.documentation && parameter.documentation.value
-              ? parameter.documentation.value
-              : parameter.documentation || ""
-          }`
+          let parameterDocumentation = ""
+          if (parameter.documentation === undefined) {
+            // parameterDocumentation = ""
+          } else if (typeof parameter.documentation === "string") {
+            parameterDocumentation = parameter.documentation
+          } else if (typeof (parameter.documentation as { value: string }).value === "string") {
+            // TODO undocumented type?
+            parameterDocumentation = (parameter.documentation as { value: string }).value
+          }
+          doc = `<b>${parameter.label}</b> ${parameterDocumentation}`
         } else if (signature.documentation) {
-          doc = signature.documentation.kind ? signature.documentation.value : signature.documentation
-        } else {
-          doc = ""
+          let signatureDocumentation = ""
+          if (signature.documentation === undefined) {
+            // signatureDocumentation = ""
+          } else if (typeof signature.documentation === "string") {
+            signatureDocumentation = signature.documentation
+          } else if (typeof (signature.documentation as { value: string }).value === "string") {
+            // TODO undocumented type?
+            signatureDocumentation = (signature.documentation as { value: string }).value
+          }
+          doc = signatureDocumentation
         }
+
+        const grammar = editor.getGrammar().scopeName.toLowerCase()
         const signatureHelpView = new ViewContainer({
           snippet: {
             snippet: signature.label,
