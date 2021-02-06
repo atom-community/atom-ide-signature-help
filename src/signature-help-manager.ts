@@ -192,7 +192,7 @@ export class SignatureHelpManager {
           return
         }
 
-        if (provider.triggerCharacters.has(change.newText[index])) {
+        if (provider.triggerCharacters?.has(change.newText[index])) {
           this.showSignatureHelp(provider, this.editor, cursorPosition)
         }
       })
