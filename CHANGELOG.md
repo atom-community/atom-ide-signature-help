@@ -1,3 +1,13 @@
+## [0.15.1](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.15.0...v0.15.1) (2021-02-06)
+
+
+### Bug Fixes
+
+* create subs globally ([4ce7eff](https://github.com/atom-ide-community/atom-ide-signature-help/commit/4ce7eff4f9fcb6553316371354e05035f39ec272))
+* remove redundant check ([708b1d2](https://github.com/atom-ide-community/atom-ide-signature-help/commit/708b1d25d920016bbbe4e7cd256b04d7560d1d00))
+* update atom-package-deps ([56af09d](https://github.com/atom-ide-community/atom-ide-signature-help/commit/56af09dfebfd577e44569bcec4a887b1eac193c4))
+* use native copying ([08eff0e](https://github.com/atom-ide-community/atom-ide-signature-help/commit/08eff0e8f2356acfbdb609661e8e3bc7f16adaef))
+
 # [0.15.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.14.1...v0.15.0) (2021-02-06)
 
 
