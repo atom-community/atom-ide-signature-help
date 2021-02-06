@@ -12,7 +12,7 @@ export class SignatureHelpManager {
   /**
    * holds a list of registered data tip providers
    */
-  providerRegistry = new ProviderRegistry()
+  providerRegistry = new ProviderRegistry<SignatureHelpProvider>()
   /**
    * holds a weak reference to all watched Atom text editors
    */
