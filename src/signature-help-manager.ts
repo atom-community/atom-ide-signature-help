@@ -186,14 +186,14 @@ export class SignatureHelpManager {
         // Use the character before the cursor as the 'trigger character'.
         const index = Math.max(0, cursorPosition.column - change.newRange.start.column - 1)
 
-        const provider = this.providerRegistry.getProviderForEditor(this.editor)
+        const provider = this.providerRegistry.getProviderForEditor(editor)
 
         if (!provider) {
           return
         }
 
         if (provider.triggerCharacters?.has(change.newText[index])) {
-          this.showSignatureHelp(provider, this.editor, cursorPosition)
+          this.showSignatureHelp(provider, editor, cursorPosition)
         }
       })
     )
