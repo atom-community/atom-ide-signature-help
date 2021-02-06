@@ -2,6 +2,7 @@ import { CompositeDisposable, Disposable, Range, Point, TextEditor } from "atom"
 import { ProviderRegistry } from "atom-ide-base/commons-atom/ProviderRegistry"
 import { ViewContainer } from "atom-ide-base/commons-ui/float-pane/ViewContainer"
 import { makeOverlaySelectable, makeOverLayCopyable } from "atom-ide-base/commons-ui/float-pane/selectable-overlay"
+import { SignatureHelpRegistry, SignatureHelpProvider } from "atom-ide-base"
 
 export class SignatureHelpManager {
   /**
@@ -93,9 +94,8 @@ export class SignatureHelpManager {
 
   /**
    * returns the provider registry as a consumable service
-   * @return {AtomIDE.SignatureHelpRegistry} [description]
    */
-  get signatureHelpRegistry() {
+  get signatureHelpRegistry(): SignatureHelpRegistry {
     return (provider) => {
       return this.providerRegistry.addProvider(provider)
     }
@@ -103,9 +103,9 @@ export class SignatureHelpManager {
 
   /**
    * checks and setups an Atom Text editor instance for tracking cursor/mouse movements
-   * @param  {TextEditor} editor  a valid Atom Text editor instance
+   * @param editor a valid Atom Text editor instance
    */
-  watchEditor(editor) {
+  watchEditor(editor: TextEditor) {
     if (this.watchedEditors.has(editor)) {
       return
     }
@@ -141,9 +141,9 @@ export class SignatureHelpManager {
   /**
    * updates the internal references to a specific Atom Text editor instance in case
    * it has been decided to track this instance
-   * @param  {TextEditor} editor the Atom Text editor instance to be tracked
+   * @param editor the Atom Text editor instance to be tracked
    */
-  updateCurrentEditor(editor) {
+  updateCurrentEditor(editor: TextEditor) {
     if (editor === this.editor) {
       return
     }
@@ -213,12 +213,11 @@ export class SignatureHelpManager {
   }
 
   /**
-   * [showSignatureHelp description]
-   * @param  {AtomIDE.SignatureHelpProvider} provider [description]
-   * @param  {TextEditor} editor   [description]
-   * @param  {Point} position [description]
+   * @param  provider
+   * @param  editor
+   * @param  position
    */
-  async showSignatureHelp(provider, editor, position) {
+  async showSignatureHelp(provider: SignatureHelpProvider, editor: TextEditor, position: Point) {
     try {
       const signatureHelp = await provider.getSignatureHelp(editor, position)
 
@@ -269,14 +268,14 @@ export class SignatureHelpManager {
     }
   }
 
-  /*
+  /**
    * mounts displays a signature help view component at a specific position in a given Atom Text editor
-   * @param  {TextEditor} editor   the Atom Text editor instance to host the data tip view
-   * @param  {Point} position      the position on which to show the signature help view
-   * @param  {SignatureHelpView} view    the signature help component to display
-   * @return {CompositeDisposable}  a composite object to release references at a later stage
+   * @param  editor   the Atom Text editor instance to host the data tip view
+   * @param  position the position on which to show the signature help view
+   * @param  view   the signature help component to display
+   * @return a composite object to release references at a later stage
    */
-  mountSignatureHelp(editor, position, view) {
+  mountSignatureHelp(editor: TextEditor, position: Point, view: ViewContainer) {
     let disposables = new CompositeDisposable()
     const overlayMarker = editor.markBufferRange(new Range(position, position), {
       invalidate: "overlap", // TODO It was never. Shouldn't be surround?
