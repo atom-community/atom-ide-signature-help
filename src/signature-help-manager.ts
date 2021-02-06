@@ -170,7 +170,8 @@ export class SignatureHelpManager {
       return
     }
 
-    this.editor.getElement().addEventListener("keydown", (evt) => {
+    // @ts-ignore
+    (this.editor.getElement() as HTMLElement).addEventListener("keydown", (evt) => {
       if (evt.keyCode === 27) {
         this.unmountDataTip()
       }
@@ -310,7 +311,8 @@ export class SignatureHelpManager {
         overlay.style.transform = `translateY(-${lineHight + hight}px)`
       } else {
         // move right so it does not overlap with auto-complete-list
-        const autoCompleteList = editor.getElement().querySelector("autocomplete-suggestion-list")
+        // @ts-ignore
+        const autoCompleteList = (editor.getElement() as HTMLElement).querySelector("autocomplete-suggestion-list")
         if (autoCompleteList) {
           overlay.style.transform = `translateX(${autoCompleteList.clientWidth}px)`
         } else {
