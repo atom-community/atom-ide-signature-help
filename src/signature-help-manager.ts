@@ -3,7 +3,7 @@ import { ProviderRegistry } from "atom-ide-base/commons-atom/ProviderRegistry"
 import { ViewContainer } from "atom-ide-base/commons-ui/float-pane/ViewContainer"
 import { makeOverlaySelectable, makeOverLayCopyable } from "atom-ide-base/commons-ui/float-pane/selectable-overlay"
 
-export default class SignatureHelpManager {
+export class SignatureHelpManager {
   /**
    * holds a reference to disposable items from this data tip manager
    */
