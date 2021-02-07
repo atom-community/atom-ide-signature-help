@@ -15,6 +15,9 @@
   },
   "scripts": {
     "format": "prettier --write .",
+    "test.format": "prettier . --check",
+    "lint": "eslint . --fix",
+    "test.lint": "eslint .",
     "clean": "shx rm -rf dist",
     "dev": "npm run clean && cross-env NODE_ENV=development rollup -c -w",
     "build": "npm run clean && cross-env NODE_ENV=production rollup -c",
