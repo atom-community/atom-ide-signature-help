@@ -1,3 +1,10 @@
+## [0.15.2](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.15.1...v0.15.2) (2021-02-10)
+
+
+### Bug Fixes
+
+* fix copying text on MacOS ([fd72cf6](https://github.com/atom-ide-community/atom-ide-signature-help/commit/fd72cf61c113a4c4338d4aaddda5fcd7128d6b43))
+
 ## [0.15.1](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.15.0...v0.15.1) (2021-02-06)
 
 
