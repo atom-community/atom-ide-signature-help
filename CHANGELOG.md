@@ -1,3 +1,16 @@
+## [0.15.3](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.15.2...v0.15.3) (2021-02-27)
+
+
+### Bug Fixes
+
+* fix view.element type ([e3a2459](https://github.com/atom-ide-community/atom-ide-signature-help/commit/e3a2459416b2b11862143906d9ffa6b8ce7472ac))
+* use grammarName ([31a49f0](https://github.com/atom-ide-community/atom-ide-signature-help/commit/31a49f02976aa9ab1e50d6f4856003c7168282b3))
+
+
+### Performance Improvements
+
+* glow only the info bar ([cf7eda5](https://github.com/atom-ide-community/atom-ide-signature-help/commit/cf7eda5ff852d36c6f5e990d3f4acc3721ddb56f))
+
 ## [0.15.2](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.15.1...v0.15.2) (2021-02-10)
 
 
