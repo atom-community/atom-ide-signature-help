@@ -38,9 +38,6 @@ export class SignatureHelpManager {
    */
   showSignatureHelpOnTyping = false
 
-  // glow on hover class
-  glowClass = atom.config.get("atom-ide-signature-help.glowOnHover") ? "signature-glow" : ""
-
   /**
    * initialization routine
    */
@@ -249,17 +246,17 @@ export class SignatureHelpManager {
         const signatureHelpView = new ViewContainer({
           snippet: {
             snippet: signature.label,
-            grammar: grammar,
+            grammarName: grammar,
             containerClassName: "signature-snippet-container",
             contentClassName: "signature-snippet",
           },
           markdown: {
             markdown: doc,
-            grammar: grammar,
+            grammarName: grammar,
             containerClassName: "signature-markdown-container",
             contentClassName: "signature-markdown",
           },
-          className: `signature-element ${this.glowClass}`,
+          className: "signature-element",
         })
         this.signatureHelpDisposables = this.mountSignatureHelp(editor, position, signatureHelpView)
       }
@@ -276,18 +273,20 @@ export class SignatureHelpManager {
    * @return a composite object to release references at a later stage
    */
   mountSignatureHelp(editor: TextEditor, position: Point, view: ViewContainer) {
+    const element = view.element as HTMLElement
+
     let disposables = new CompositeDisposable()
     const overlayMarker = editor.markBufferRange(new Range(position, position), {
       invalidate: "overlap", // TODO It was never. Shouldn't be surround?
     })
 
-    makeOverlaySelectable(editor, view.element)
+    makeOverlaySelectable(editor, element)
 
     const marker = editor.decorateMarker(overlayMarker, {
       type: "overlay",
       class: "signature-overlay",
       position: "head", // follows the cursor
-      item: view.element,
+      item: element,
     })
 
     //  TODO do this for some valid range
@@ -298,11 +297,11 @@ export class SignatureHelpManager {
     // move box above the current editing line
     // HACK: patch the decoration's style so it is shown above the current line
     setTimeout(() => {
-      const overlay = view.element.parentElement
+      const overlay = element.parentElement
       if (!overlay) {
         return
       }
-      const hight = view.element.getBoundingClientRect().height
+      const hight = element.getBoundingClientRect().height
       const lineHight = editor.getLineHeightInPixels()
       //@ts-ignore internal type
       const availableHight = (position.row - editor.getFirstVisibleScreenRow()) * lineHight
@@ -320,7 +319,7 @@ export class SignatureHelpManager {
           overlay.style.transform = "translateX(300px)"
         }
       }
-      view.element.style.visibility = "visible"
+      element.style.visibility = "visible"
     }, 100)
 
     disposables.add(

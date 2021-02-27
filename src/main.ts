@@ -38,10 +38,4 @@ export const config = {
     type: "boolean",
     default: true,
   },
-  glowOnHover: {
-    title: "Glow on hover",
-    description: "Should signature glow when you hover on it?",
-    type: "boolean",
-    default: true,
-  },
 }
