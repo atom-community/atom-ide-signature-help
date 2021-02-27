@@ -246,13 +246,13 @@ export class SignatureHelpManager {
         const signatureHelpView = new ViewContainer({
           snippet: {
             snippet: signature.label,
-            grammar: grammar,
+            grammarName: grammar,
             containerClassName: "signature-snippet-container",
             contentClassName: "signature-snippet",
           },
           markdown: {
             markdown: doc,
-            grammar: grammar,
+            grammarName: grammar,
             containerClassName: "signature-markdown-container",
             contentClassName: "signature-markdown",
           },
