@@ -38,9 +38,6 @@ export class SignatureHelpManager {
    */
   showSignatureHelpOnTyping = false
 
-  // glow on hover class
-  glowClass = atom.config.get("atom-ide-signature-help.glowOnHover") ? "signature-glow" : ""
-
   /**
    * initialization routine
    */
@@ -259,7 +256,7 @@ export class SignatureHelpManager {
             containerClassName: "signature-markdown-container",
             contentClassName: "signature-markdown",
           },
-          className: `signature-element ${this.glowClass}`,
+          className: "signature-element",
         })
         this.signatureHelpDisposables = this.mountSignatureHelp(editor, position, signatureHelpView)
       }
