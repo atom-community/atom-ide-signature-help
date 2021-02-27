@@ -274,7 +274,7 @@ export class SignatureHelpManager {
    */
   mountSignatureHelp(editor: TextEditor, position: Point, view: ViewContainer) {
     const element = view.element as HTMLElement
-    
+
     let disposables = new CompositeDisposable()
     const overlayMarker = editor.markBufferRange(new Range(position, position), {
       invalidate: "overlap", // TODO It was never. Shouldn't be surround?

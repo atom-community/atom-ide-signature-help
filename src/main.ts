@@ -37,5 +37,5 @@ export const config = {
       "If set to true, the signature help is shown as soon as you start typing. Otherwise you will have to activate it via keypress.",
     type: "boolean",
     default: true,
-  }
+  },
 }
