@@ -9,11 +9,11 @@ export default [
       {
         dir: "dist",
         format: "cjs",
-        sourcemap: true,
+        sourcemap: process.env.NODE_ENV === "production" ? true : "inline",
       },
     ],
     // loaded externally
-    external: ["atom"],
+    external: ["atom", "react", "react-dom"],
     plugins: plugins,
   },
 ]

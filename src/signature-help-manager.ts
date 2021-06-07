@@ -220,7 +220,8 @@ export class SignatureHelpManager {
         let doc = ""
         if (parameter) {
           let parameterDocumentation = ""
-          if (parameter.documentation === undefined) {
+          // TODO documentation can be null. Update the types!
+          if (parameter.documentation === undefined || parameter.documentation === null) {
             // parameterDocumentation = ""
           } else if (typeof parameter.documentation === "string") {
             parameterDocumentation = parameter.documentation
@@ -231,7 +232,7 @@ export class SignatureHelpManager {
           doc = `<b>${parameter.label}</b> ${parameterDocumentation}`
         } else if (signature.documentation) {
           let signatureDocumentation = ""
-          if (signature.documentation === undefined) {
+          if (signature.documentation === undefined || signature.documentation === null) {
             // signatureDocumentation = ""
           } else if (typeof signature.documentation === "string") {
             signatureDocumentation = signature.documentation
