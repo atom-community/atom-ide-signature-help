@@ -1,3 +1,12 @@
+## [0.15.4](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.15.3...v0.15.4) (2021-06-07)
+
+
+### Bug Fixes
+
+* documentation can be null ([15a5bf4](https://github.com/atom-ide-community/atom-ide-signature-help/commit/15a5bf4e3e2a99ce1ff929a32bdbedd9adddb821))
+* keep react outside of the bundle ([4cf07ae](https://github.com/atom-ide-community/atom-ide-signature-help/commit/4cf07aec5eaf0672b1268e6ab5a93448c24c4e3c))
+* update dependencies ([0ac8094](https://github.com/atom-ide-community/atom-ide-signature-help/commit/0ac80947e5f9e65dbcab19eaf7b2239b51e180e2))
+
 ## [0.15.3](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.15.2...v0.15.3) (2021-02-27)
 
 
