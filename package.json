@@ -22,6 +22,7 @@
     "dev": "npm run clean && cross-env NODE_ENV=development rollup -c -w",
     "build": "npm run clean && cross-env NODE_ENV=production rollup -c",
     "bump": "ncu -u",
+    "build-commit": "build-commit -o dist",
     "prepare": "npm run build"
   },
   "package-deps": [
