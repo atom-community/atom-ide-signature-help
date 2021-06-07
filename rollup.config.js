@@ -13,7 +13,7 @@ export default [
       },
     ],
     // loaded externally
-    external: ["atom"],
+    external: ["atom", "react", "react-dom"],
     plugins: plugins,
   },
 ]
