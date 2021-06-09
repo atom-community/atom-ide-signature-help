@@ -5,42 +5,24 @@ import { makeOverlaySelectable } from "atom-ide-base/commons-ui/float-pane/selec
 import { SignatureHelpRegistry, SignatureHelpProvider } from "atom-ide-base"
 
 export class SignatureHelpManager {
-  /**
-   * holds a reference to disposable items from this data tip manager
-   */
+  /** Holds a reference to disposable items from this data tip manager */
   subscriptions = new CompositeDisposable()
-  /**
-   * holds a list of registered data tip providers
-   */
+  /** Holds a list of registered data tip providers */
   providerRegistry = new ProviderRegistry<SignatureHelpProvider>()
-  /**
-   * holds a weak reference to all watched Atom text editors
-   */
+  /** Holds a weak reference to all watched Atom text editors */
   watchedEditors = new WeakSet<TextEditor>()
-  /**
-   * holds a reference to the current watched Atom text editor
-   */
+  /** Holds a reference to the current watched Atom text editor */
   editor: TextEditor | null = null
-  /**
-   * holds a reference to the current watched Atom text editor viewbuffer
-   */
+  /** Holds a reference to the current watched Atom text editor viewbuffer */
   editorView: TextEditorElement | null = null
-  /**
-   * holds a reference to all disposable items for the current watched Atom text editor
-   */
+  /** Holds a reference to all disposable items for the current watched Atom text editor */
   editorSubscriptions: CompositeDisposable = new CompositeDisposable()
-  /**
-   * holds a reference to all disposable items for the current signature help
-   */
+  /** Holds a reference to all disposable items for the current signature help */
   signatureHelpDisposables: CompositeDisposable = new CompositeDisposable()
-  /**
-   * config flag denoting if the signature help should be shown during typing automatically
-   */
+  /** Config flag denoting if the signature help should be shown during typing automatically */
   showSignatureHelpOnTyping = false
 
-  /**
-   * initialization routine
-   */
+  /** Initialization routine */
   initialize() {
     this.subscriptions.add(
       atom.workspace.observeTextEditors((editor) => {
@@ -69,9 +51,7 @@ export class SignatureHelpManager {
     )
   }
 
-  /**
-   * dispose function to clean up any disposable references used
-   */
+  /** Dispose function to clean up any disposable references used */
   dispose() {
     this.signatureHelpDisposables.dispose()
 
@@ -80,9 +60,7 @@ export class SignatureHelpManager {
     this.subscriptions.dispose()
   }
 
-  /**
-   * returns the provider registry as a consumable service
-   */
+  /** Returns the provider registry as a consumable service */
   get signatureHelpRegistry(): SignatureHelpRegistry {
     return (provider) => {
       return this.providerRegistry.addProvider(provider)
@@ -90,8 +68,9 @@ export class SignatureHelpManager {
   }
 
   /**
-   * checks and setups an Atom Text editor instance for tracking cursor/mouse movements
-   * @param editor a valid Atom Text editor instance
+   * Checks and setups an Atom Text editor instance for tracking cursor/mouse movements
+   *
+   * @param editor A valid Atom Text editor instance
    */
   watchEditor(editor: TextEditor) {
     if (this.watchedEditors.has(editor)) {
@@ -125,9 +104,9 @@ export class SignatureHelpManager {
   }
 
   /**
-   * updates the internal references to a specific Atom Text editor instance in case
-   * it has been decided to track this instance
-   * @param editor the Atom Text editor instance to be tracked
+   * Updates the internal references to a specific Atom Text editor instance in case it has been decided to track this instance
+   *
+   * @param editor The Atom Text editor instance to be tracked
    */
   updateCurrentEditor(editor: TextEditor | null) {
     if (editor === this.editor) {
@@ -198,9 +177,9 @@ export class SignatureHelpManager {
   }
 
   /**
-   * @param  provider
-   * @param  editor
-   * @param  position
+   * @param provider
+   * @param editor
+   * @param position
    */
   async showSignatureHelp(provider: SignatureHelpProvider, editor: TextEditor, position: Point) {
     try {
@@ -267,11 +246,12 @@ export class SignatureHelpManager {
   }
 
   /**
-   * mounts displays a signature help view component at a specific position in a given Atom Text editor
-   * @param  editor   the Atom Text editor instance to host the data tip view
-   * @param  position the position on which to show the signature help view
-   * @param  view   the signature help component to display
-   * @return a composite object to release references at a later stage
+   * Mounts displays a signature help view component at a specific position in a given Atom Text editor
+   *
+   * @param editor The Atom Text editor instance to host the data tip view
+   * @param position The position on which to show the signature help view
+   * @param view The signature help component to display
+   * @returns A composite object to release references at a later stage
    */
   mountSignatureHelp(editor: TextEditor, position: Point, view: ViewContainer) {
     const element = view.element as HTMLElement
@@ -332,9 +312,7 @@ export class SignatureHelpManager {
     return disposables
   }
 
-  /**
-   * unmounts / hides the most recent data tip view component
-   */
+  /** Unmounts / hides the most recent data tip view component */
   unmountDataTip() {
     this.signatureHelpDisposables.dispose()
   }

@@ -5,9 +5,7 @@ import { SignatureHelpRegistry } from "atom-ide-base"
 let subscriptions = new CompositeDisposable()
 let signatureHelpManager: SignatureHelpManager
 
-/**
- * called by Atom when activating an extension
- */
+/** Called by Atom when activating an extension */
 export function activate() {
   // Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
   signatureHelpManager = new SignatureHelpManager()
@@ -19,9 +17,7 @@ export function activate() {
     })
 }
 
-/**
- * called by Atom when deactivating an extension
- */
+/** Called by Atom when deactivating an extension */
 export function deactivate() {
   subscriptions.dispose()
 }
