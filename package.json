@@ -19,8 +19,8 @@
     "lint": "eslint . --fix",
     "test.lint": "eslint .",
     "clean": "shx rm -rf dist",
-    "dev": "npm run clean && cross-env NODE_ENV=development rollup -c -w",
-    "build": "npm run clean && cross-env NODE_ENV=production rollup -c",
+    "dev": "npm run clean && cross-env NODE_ENV=development cross-env BABEL_KEEP_MODULES=true rollup -c -w",
+    "build": "npm run clean && cross-env NODE_ENV=production cross-env BABEL_KEEP_MODULES=true rollup -c",
     "bump": "ncu -u",
     "build-commit": "build-commit -o dist",
     "prepare": "npm run build"
@@ -31,11 +31,14 @@
   ],
   "dependencies": {
     "atom-ide-base": "^3.0.0",
-    "atom-package-deps": "^7.2.3"
+    "atom-package-deps": "^7.2.3",
+    "solid-js": "^0.26.5"
   },
   "devDependencies": {
     "@types/atom": "^1.40.10",
     "@types/node": "^15.12.2",
+    "babel-preset-atomic": "^4.1.0",
+    "babel-preset-solid": "^0.26.5",
     "build-commit": "^0.1.4",
     "cross-env": "^7.0.3",
     "prettier-config-atomic": "^2.0.5",

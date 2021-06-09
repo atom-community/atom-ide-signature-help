@@ -1,8 +1,8 @@
 import { createPlugins } from "rollup-plugin-atomic"
 
-const plugins = createPlugins([["ts", { tsconfig: "./src/tsconfig.json" }, true], "js", "json"])
+const plugins = createPlugins([["babel", { extensions: [".ts", ".tsx"] }, true], "js", "json"])
 
-export default [
+const RollupConfig = [
   {
     input: "src/main.ts",
     output: [
@@ -13,7 +13,8 @@ export default [
       },
     ],
     // loaded externally
-    external: ["atom", "react", "react-dom"],
+    external: ["atom"],
     plugins: plugins,
   },
 ]
+export default RollupConfig

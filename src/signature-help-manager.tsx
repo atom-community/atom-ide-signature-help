@@ -1,8 +1,9 @@
 import { CompositeDisposable, Disposable, Range, Point, TextEditor, TextEditorElement } from "atom"
-import { ProviderRegistry } from "atom-ide-base/commons-atom/ProviderRegistry"
-import { ViewContainer } from "atom-ide-base/commons-ui/float-pane/ViewContainer"
-import { makeOverlaySelectable } from "atom-ide-base/commons-ui/float-pane/selectable-overlay"
-import { SignatureHelpRegistry, SignatureHelpProvider } from "atom-ide-base"
+import { ProviderRegistry } from "atom-ide-base/src-commons-atom/ProviderRegistry"
+import { ViewContainer } from "atom-ide-base/src-commons-ui/float-pane/ViewContainer"
+import { render } from "solid-js/web"
+import { makeOverlaySelectable } from "atom-ide-base/src-commons-ui/float-pane/selectable-overlay"
+import type { SignatureHelpRegistry, SignatureHelpProvider } from "atom-ide-base"
 
 export class SignatureHelpManager {
   /** Holds a reference to disposable items from this data tip manager */
@@ -223,22 +224,28 @@ export class SignatureHelpManager {
         }
 
         const grammar = editor.getGrammar().scopeName.toLowerCase()
-        const signatureHelpView = new ViewContainer({
-          snippet: {
-            snippet: signature.label,
-            grammarName: grammar,
-            containerClassName: "signature-snippet-container",
-            contentClassName: "signature-snippet",
-          },
-          markdown: {
-            markdown: doc,
-            grammarName: grammar,
-            containerClassName: "signature-markdown-container",
-            contentClassName: "signature-markdown",
-          },
-          className: "signature-element",
-        })
-        this.signatureHelpDisposables = this.mountSignatureHelp(editor, position, signatureHelpView)
+        const element = document.createElement("div")
+        render(
+          () => (
+            <ViewContainer
+              snippet={{
+                snippet: signature.label,
+                grammarName: grammar,
+                containerClassName: "signature-snippet-container",
+                contentClassName: "signature-snippet",
+              }}
+              markdown={{
+                markdown: doc,
+                grammarName: grammar,
+                containerClassName: "signature-markdown-container",
+                contentClassName: "signature-markdown",
+              }}
+              className="signature-element"
+            />
+          ),
+          element
+        )
+        this.signatureHelpDisposables = this.mountSignatureHelp(editor, position, element)
       }
     } catch (err) {
       console.error(err)
@@ -253,9 +260,7 @@ export class SignatureHelpManager {
    * @param view The signature help component to display
    * @returns A composite object to release references at a later stage
    */
-  mountSignatureHelp(editor: TextEditor, position: Point, view: ViewContainer) {
-    const element = view.element as HTMLElement
-
+  mountSignatureHelp(editor: TextEditor, position: Point, element: HTMLElement) {
     let disposables = new CompositeDisposable()
     const overlayMarker = editor.markBufferRange(new Range(position, position), {
       invalidate: "overlap", // TODO It was never. Shouldn't be surround?
@@ -303,11 +308,7 @@ export class SignatureHelpManager {
       element.style.visibility = "visible"
     }, 100)
 
-    disposables.add(
-      new Disposable(() => overlayMarker.destroy()),
-      new Disposable(() => view.destroy()),
-      new Disposable(() => marker.destroy())
-    )
+    disposables.add(new Disposable(() => overlayMarker.destroy()), new Disposable(() => marker.destroy()))
 
     return disposables
   }
