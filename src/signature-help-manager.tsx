@@ -136,14 +136,14 @@ export class SignatureHelpManager {
     // @ts-ignore
     const editorElement: TextEditorElement = this.editor.getElement()
     editorElement.addEventListener("keydown", (evt) => {
-      if (evt.keyCode === 27) {
+      if (evt.key === "Escape") {
         this.unmountDataTip()
       }
     })
 
     this.editorSubscriptions.add(
       this.editor.getBuffer().onDidChangeText(async (evt) => {
-        if (evt.changes.length != 1) {
+        if (evt.changes.length !== 1) {
           return
         }
 
@@ -170,7 +170,7 @@ export class SignatureHelpManager {
           return
         }
 
-        if (provider.triggerCharacters?.has(change.newText[index])) {
+        if (provider.triggerCharacters?.has(change.newText[index]) === true) {
           await this.showSignatureHelp(provider, editor, cursorPosition)
         }
       })
@@ -186,13 +186,13 @@ export class SignatureHelpManager {
     try {
       const signatureHelp = await provider.getSignatureHelp(editor, position)
 
-      if (!signatureHelp || signatureHelp.signatures.length == 0) {
+      if (!signatureHelp || signatureHelp.signatures.length === 0) {
         this.unmountDataTip()
       } else {
-        const index = signatureHelp.activeSignature || 0
+        const index = signatureHelp.activeSignature ?? 0
         const signature = signatureHelp.signatures[index]
-        const paramIndex = signatureHelp.activeParameter || 0
-        const parameter = signature.parameters !== undefined ? signature.parameters[paramIndex] || null : null
+        const paramIndex = signatureHelp.activeParameter ?? 0
+        const parameter = signature.parameters !== undefined ? signature.parameters[paramIndex] : null
 
         // clear last data tip
         this.unmountDataTip()
@@ -210,11 +210,9 @@ export class SignatureHelpManager {
             parameterDocumentation = (parameter.documentation as { value: string }).value
           }
           doc = `<b>${parameter.label}</b> ${parameterDocumentation}`
-        } else if (signature.documentation) {
+        } else if (signature.documentation !== null && signature.documentation !== undefined) {
           let signatureDocumentation = ""
-          if (signature.documentation === undefined || signature.documentation === null) {
-            // signatureDocumentation = ""
-          } else if (typeof signature.documentation === "string") {
+          if (typeof signature.documentation === "string") {
             signatureDocumentation = signature.documentation
           } else if (typeof (signature.documentation as { value: string }).value === "string") {
             // TODO undocumented type?
