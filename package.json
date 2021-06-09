@@ -26,7 +26,6 @@
     "prepare": "npm run build"
   },
   "package-deps": [
-    "atom-ide-markdown-service",
     "busy-signal"
   ],
   "dependencies": {
