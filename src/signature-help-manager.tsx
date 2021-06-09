@@ -31,13 +31,13 @@ export class SignatureHelpManager {
         editor.onDidDestroy(() => disposable?.dispose())
       }),
       atom.commands.add("atom-text-editor", {
-        "signature-help:show": (evt) => {
+        "signature-help:show": async (evt) => {
           const editor = evt.currentTarget.getModel()
           if (atom.workspace.isTextEditor(editor)) {
             const provider = this.providerRegistry.getProviderForEditor(editor)
             const position = editor.getLastCursor().getBufferPosition()
             if (provider) {
-              this.showSignatureHelp(provider, editor, position)
+              await this.showSignatureHelp(provider, editor, position)
             }
           }
         },
@@ -142,7 +142,7 @@ export class SignatureHelpManager {
     })
 
     this.editorSubscriptions.add(
-      this.editor.getBuffer().onDidChangeText((evt) => {
+      this.editor.getBuffer().onDidChangeText(async (evt) => {
         if (evt.changes.length != 1) {
           return
         }
@@ -171,7 +171,7 @@ export class SignatureHelpManager {
         }
 
         if (provider.triggerCharacters?.has(change.newText[index])) {
-          this.showSignatureHelp(provider, editor, cursorPosition)
+          await this.showSignatureHelp(provider, editor, cursorPosition)
         }
       })
     )
