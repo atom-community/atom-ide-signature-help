@@ -1,0 +1,7 @@
+{
+  "extends": "eslint-config-atomic/react",
+  "ignorePatterns": ["dist/", "node_modules/"],
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  }
+}

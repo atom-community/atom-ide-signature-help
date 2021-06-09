@@ -41,6 +41,7 @@
     "babel-preset-solid": "^0.26.5",
     "build-commit": "^0.1.4",
     "cross-env": "^7.0.3",
+    "eslint-config-atomic": "^1.15.3",
     "prettier-config-atomic": "^2.0.5",
     "rollup-plugin-atomic": "^2.3.2",
     "shx": "^0.3.3",

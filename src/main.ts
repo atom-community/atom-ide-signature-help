@@ -2,7 +2,7 @@ import { CompositeDisposable } from "atom"
 import { SignatureHelpManager } from "./signature-help-manager"
 import { SignatureHelpRegistry } from "atom-ide-base"
 
-let subscriptions = new CompositeDisposable()
+const subscriptions = new CompositeDisposable()
 let signatureHelpManager: SignatureHelpManager
 
 /** Called by Atom when activating an extension */

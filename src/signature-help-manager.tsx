@@ -77,16 +77,16 @@ export class SignatureHelpManager {
     if (this.watchedEditors.has(editor)) {
       return
     }
-    let editorView = atom.views.getView(editor)
+    const editorView = atom.views.getView(editor)
     if (editorView.hasFocus()) {
       this.updateCurrentEditor(editor)
     }
-    let focusListener = () => this.updateCurrentEditor(editor)
+    const focusListener = () => this.updateCurrentEditor(editor)
     editorView.addEventListener("focus", focusListener)
-    let blurListener = () => this.unmountDataTip()
+    const blurListener = () => this.unmountDataTip()
     editorView.addEventListener("blur", blurListener)
 
-    let disposable = new Disposable(() => {
+    const disposable = new Disposable(() => {
       editorView.removeEventListener("focus", focusListener)
       editorView.removeEventListener("blur", blurListener)
       if (this.editor === editor) {
@@ -261,7 +261,7 @@ export class SignatureHelpManager {
    * @returns A composite object to release references at a later stage
    */
   mountSignatureHelp(editor: TextEditor, position: Point, element: HTMLElement) {
-    let disposables = new CompositeDisposable()
+    const disposables = new CompositeDisposable()
     const overlayMarker = editor.markBufferRange(new Range(position, position), {
       invalidate: "overlap", // TODO It was never. Shouldn't be surround?
     })
