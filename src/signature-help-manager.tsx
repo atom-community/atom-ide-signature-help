@@ -225,6 +225,7 @@ export class SignatureHelpManager {
 
         const grammar = editor.getGrammar().scopeName.toLowerCase()
         const element = document.createElement("div")
+        element.className = "signature-element"
         render(
           () => (
             <ViewContainer
@@ -240,7 +241,6 @@ export class SignatureHelpManager {
                 containerClassName: "signature-markdown-container",
                 contentClassName: "signature-markdown",
               }}
-              className="signature-element"
             />
           ),
           element
