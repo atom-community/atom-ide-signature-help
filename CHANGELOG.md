@@ -1,3 +1,22 @@
+# [0.16.0](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.15.4...v0.16.0) (2021-06-09)
+
+
+### Bug Fixes
+
+* accurate type handling ([522828a](https://github.com/atom-ide-community/atom-ide-signature-help/commit/522828a9ca4bd9c06d84d457eb072aca79dc555a))
+* add eslint and run eslint --fix ([b6f64d1](https://github.com/atom-ide-community/atom-ide-signature-help/commit/b6f64d14bd3b4d68153385890df97215db372e75))
+* apply the className to the element ([5ae58e6](https://github.com/atom-ide-community/atom-ide-signature-help/commit/5ae58e63d179958b85e039f06e8e2a1ec782f7ad))
+* await showSignatureHelp ([ccefc38](https://github.com/atom-ide-community/atom-ide-signature-help/commit/ccefc38d884db0d24d59c9706f5ea70ee599dd94))
+* default showSignatureHelpOnTyping to true ([6e97d2f](https://github.com/atom-ide-community/atom-ide-signature-help/commit/6e97d2f46a526c045e494d2b8c8ee0133fa49e89))
+* fix package-deps loading ([e3d7741](https://github.com/atom-ide-community/atom-ide-signature-help/commit/e3d7741958e872a34becdf1c0678c18e4e45e4b4))
+* make mountSignatureHelp a free function ([a1028a2](https://github.com/atom-ide-community/atom-ide-signature-help/commit/a1028a219c3622876bfb55b820c2223d4289a0f3))
+* update dependencies ([5779df8](https://github.com/atom-ide-community/atom-ide-signature-help/commit/5779df85008953094307a360e76ea277702e8484))
+
+
+### Features
+
+* convert to solid ([0fecdb9](https://github.com/atom-ide-community/atom-ide-signature-help/commit/0fecdb9669e0b46a8ded97ee36def56511ff73fe))
+
 ## [0.15.4](https://github.com/atom-ide-community/atom-ide-signature-help/compare/v0.15.3...v0.15.4) (2021-06-07)
 
 
