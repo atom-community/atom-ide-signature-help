@@ -21,7 +21,7 @@ export class SignatureHelpManager {
   /** Holds a reference to all disposable items for the current signature help */
   signatureHelpDisposables: CompositeDisposable = new CompositeDisposable()
   /** Config flag denoting if the signature help should be shown during typing automatically */
-  showSignatureHelpOnTyping = false
+  showSignatureHelpOnTyping = true
 
   /** Initialization routine */
   initialize() {
