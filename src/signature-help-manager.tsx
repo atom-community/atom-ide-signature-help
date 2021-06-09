@@ -243,76 +243,74 @@ export class SignatureHelpManager {
           ),
           element
         )
-        this.signatureHelpDisposables = this.mountSignatureHelp(editor, position, element)
+        this.signatureHelpDisposables = mountSignatureHelp(editor, position, element)
       }
     } catch (err) {
       console.error(err)
     }
   }
 
-  /**
-   * Mounts displays a signature help view component at a specific position in a given Atom Text editor
-   *
-   * @param editor The Atom Text editor instance to host the data tip view
-   * @param position The position on which to show the signature help view
-   * @param view The signature help component to display
-   * @returns A composite object to release references at a later stage
-   */
-  mountSignatureHelp(editor: TextEditor, position: Point, element: HTMLElement) {
-    const disposables = new CompositeDisposable()
-    const overlayMarker = editor.markBufferRange(new Range(position, position), {
-      invalidate: "overlap", // TODO It was never. Shouldn't be surround?
-    })
-
-    makeOverlaySelectable(editor, element)
-
-    const marker = editor.decorateMarker(overlayMarker, {
-      type: "overlay",
-      class: "signature-overlay",
-      position: "head", // follows the cursor
-      item: element,
-    })
-
-    //  TODO do this for some valid range
-    // editor.onDidChangeCursorPosition(
-    //   () => marker.destroy() // destroy the marker if user clicks somewhere else
-    // )
-
-    // move box above the current editing line
-    // HACK: patch the decoration's style so it is shown above the current line
-    setTimeout(() => {
-      const overlay = element.parentElement
-      if (!overlay) {
-        return
-      }
-      const hight = element.getBoundingClientRect().height
-      const lineHight = editor.getLineHeightInPixels()
-      //@ts-ignore internal type
-      const availableHight = (position.row - editor.getFirstVisibleScreenRow()) * lineHight
-      if (hight < availableHight + 80) {
-        overlay.style.transform = `translateY(-${lineHight + hight}px)`
-      } else {
-        // move right so it does not overlap with auto-complete-list
-        // @ts-ignore
-        const autoCompleteList = (editor.getElement() as TextEditorElement).querySelector(
-          "autocomplete-suggestion-list"
-        )
-        if (autoCompleteList) {
-          overlay.style.transform = `translateX(${autoCompleteList.clientWidth}px)`
-        } else {
-          overlay.style.transform = "translateX(300px)"
-        }
-      }
-      element.style.visibility = "visible"
-    }, 100)
-
-    disposables.add(new Disposable(() => overlayMarker.destroy()), new Disposable(() => marker.destroy()))
-
-    return disposables
-  }
-
   /** Unmounts / hides the most recent data tip view component */
   unmountDataTip() {
     this.signatureHelpDisposables.dispose()
   }
+}
+
+/**
+ * Mounts displays a signature help view component at a specific position in a given Atom Text editor
+ *
+ * @param editor The Atom Text editor instance to host the data tip view
+ * @param position The position on which to show the signature help view
+ * @param view The signature help component to display
+ * @returns A composite object to release references at a later stage
+ */
+function mountSignatureHelp(editor: TextEditor, position: Point, element: HTMLElement) {
+  const disposables = new CompositeDisposable()
+  const overlayMarker = editor.markBufferRange(new Range(position, position), {
+    invalidate: "overlap", // TODO It was never. Shouldn't be surround?
+  })
+
+  makeOverlaySelectable(editor, element)
+
+  const marker = editor.decorateMarker(overlayMarker, {
+    type: "overlay",
+    class: "signature-overlay",
+    position: "head", // follows the cursor
+    item: element,
+  })
+
+  //  TODO do this for some valid range
+  // editor.onDidChangeCursorPosition(
+  //   () => marker.destroy() // destroy the marker if user clicks somewhere else
+  // )
+
+  // move box above the current editing line
+  // HACK: patch the decoration's style so it is shown above the current line
+  setTimeout(() => {
+    const overlay = element.parentElement
+    if (!overlay) {
+      return
+    }
+    const hight = element.getBoundingClientRect().height
+    const lineHight = editor.getLineHeightInPixels()
+    //@ts-ignore internal type
+    const availableHight = (position.row - editor.getFirstVisibleScreenRow()) * lineHight
+    if (hight < availableHight + 80) {
+      overlay.style.transform = `translateY(-${lineHight + hight}px)`
+    } else {
+      // move right so it does not overlap with auto-complete-list
+      // @ts-ignore
+      const autoCompleteList = (editor.getElement() as TextEditorElement).querySelector("autocomplete-suggestion-list")
+      if (autoCompleteList) {
+        overlay.style.transform = `translateX(${autoCompleteList.clientWidth}px)`
+      } else {
+        overlay.style.transform = "translateX(300px)"
+      }
+    }
+    element.style.visibility = "visible"
+  }, 100)
+
+  disposables.add(new Disposable(() => overlayMarker.destroy()), new Disposable(() => marker.destroy()))
+
+  return disposables
 }
