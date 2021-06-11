@@ -8,7 +8,7 @@
     "atom-ide",
     "signature-help"
   ],
-  "repository": "https://github.com/atom-ide-community/atom-ide-signature-help",
+  "repository": "https://github.com/atom-community/atom-ide-signature-help",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
