@@ -35,9 +35,9 @@
   },
   "devDependencies": {
     "@types/atom": "^1.40.10",
-    "@types/node": "^15.12.2",
+    "@types/node": "^16.0.0",
     "babel-preset-atomic": "^4.1.0",
-    "babel-preset-solid": "^0.26.5",
+    "babel-preset-solid": "^1.0.0",
     "build-commit": "^0.1.4",
     "cross-env": "^7.0.3",
     "eslint-config-atomic": "^1.15.3",
